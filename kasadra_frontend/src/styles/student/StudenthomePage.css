@@ -1,0 +1,192 @@
+/* ======================
+   Welcome Text
+======================== */
+.welcome-text {
+  margin-top: calc(15vh + 40px); /* below navbar */
+  margin-bottom: 40px; /* reasonable spacing */
+}
+
+.welcome-text .highlight {
+  color: #20568f;
+  font-weight: 600;
+  margin-left: 180px;
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 25px;
+  line-height: 1.2;
+}
+
+/* ======================
+   Grid Layout
+======================== */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 80px 120px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 40px 40px 40px;
+  align-content: start; /* starts below text */
+}
+
+/* ======================
+   Button Box
+======================== */
+.btn-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 110px;
+  border: 1px solid #000000;
+  padding: 25px 20px;
+  background-color: #f8fafc;
+  color: #000;
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  /* border-radius: 10px; */
+}
+
+.btn-box .icon {
+  color: #210202;
+  font-size: 2.8rem;
+}
+
+.btn-box:hover {
+  background-color: #0ea5e9;
+  transform: translateY(-3px);
+  box-shadow: 5px 5px 10px gray;
+  border-radius: 10px;
+  border: none;
+}
+
+/* ======================
+   Responsive Media Queries
+======================== */
+
+/* Extra Large Screens (<= 2000px) */
+@media (max-width: 2000px) {
+  .welcome-text {
+    margin-top: calc(15vh + 60px);
+    margin-bottom: 70px;
+  }
+
+  .welcome-text .highlight {
+    font-size: 28px;
+    margin-left: 140px;
+  }
+
+  .button-grid {
+    gap: 100px 150px;
+    max-width: 1100px;
+  }
+
+  .btn-box {
+    min-height: 120px;
+    font-size: 24px;
+  }
+
+  .btn-box .icon {
+    font-size: 3rem;
+  }
+}
+
+/* Large Screens (<= 1500px) */
+@media (max-width: 1500px) {
+  .welcome-text .highlight {
+    margin-left: 80px;
+  }
+
+  .button-grid {
+    max-width: 900px;
+    gap: 80px 120px;
+  }
+}
+
+/* Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+  .welcome-text {
+    margin-top: calc(15vh + 50px);
+    margin-bottom: 50px;
+  }
+
+  .welcome-text .highlight {
+    font-size: 22px;
+    margin-left: 20px;
+  }
+
+  .button-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 60px;
+  }
+
+  .btn-box {
+    min-height: 100px;
+    font-size: 20px;
+  }
+
+  .btn-box .icon {
+    font-size: 2.3rem;
+  }
+}
+
+/* Mobile Landscape & Large Phones (<= 768px) */
+@media (max-width: 768px) {
+  .welcome-text {
+    margin-top: calc(15vh + 40px);
+    margin-bottom: 30px;
+    padding-left: 10px;
+  }
+
+  .welcome-text .highlight {
+    font-size: 20px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .button-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .btn-box {
+    min-height: 90px;
+    font-size: 18px;
+  }
+
+  .btn-box .icon {
+    font-size: 2rem;
+  }
+}
+
+/* Small Phones (<= 480px) */
+@media (max-width: 480px) {
+  .welcome-text {
+    margin-top: calc(15vh + 25px);
+    margin-bottom: 15px;
+  }
+
+  .welcome-text .highlight {
+    font-size: 18px;
+    margin-left: 0;
+  }
+
+  .button-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .btn-box {
+    min-height: 80px;
+    font-size: 16px;
+  }
+
+  .btn-box .icon {
+    font-size: 1.8rem;
+  }
+}

@@ -1,0 +1,267 @@
+.add-weblink-header-section{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.add-weblink-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+ 
+   font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* =======================================================
+   MAIN FIX – Prevents layout going inside navbar
+======================================================= */
+.add-weblink-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-grow: 1;
+    margin-top: calc(15vh + 100px); /* Start below navbar */
+}
+
+.add-weblink-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 40px 50px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 380px;
+}
+
+.add-weblink-title {
+    font-size: 22px;
+    margin-top: 12px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #222;
+}
+
+.add-weblink-form {   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-weblink-label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.add-weblink-input {
+    width: 80%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.add-weblink-input:focus {
+    border-color: #0099ff;
+    box-shadow: 0 0 4px rgba(0, 153, 255, 0.3);
+}
+
+.add-weblink-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.add-weblink-btn {
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-weblink-ok {
+    background-color: #00aaff;
+    color: #fff;
+}
+
+.add-weblink-ok:hover {
+    background-color: #0088cc;
+}
+
+.add-weblink-clear {
+    background-color: #e53935;
+    color: #fff;
+}
+
+.add-weblink-clear:hover {
+    background-color: #c62828;
+}
+
+/* =============================
+   Success & Error Messages
+============================= */
+.add-weblink-success,
+.add-weblink-error {
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 16px;
+    animation: fadeIn 0.3s ease-in-out; 
+}
+
+.add-weblink-success {
+    color: #247f3c;
+    font-weight: bold;
+}
+
+.add-weblink-error {
+    color: #b32418;
+}
+
+/* Simple fade animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ===============================
+   992px - Tablet Landscape
+================================ */
+@media (max-width: 992px) {
+
+  .add-weblink-container {
+    margin-top: calc(15vh + 80px);
+  }
+
+  .add-weblink-card {
+    padding: 35px 40px;
+    min-width: 350px;
+  }
+
+  .add-weblink-input {
+    width: 90%;
+  }
+}
+
+/* ===============================
+   768px - Tablet Portrait
+================================ */
+@media (max-width: 768px) {
+
+  .add-weblink-container {
+    margin-top: calc(15vh + 60px);
+  }
+
+  .add-weblink-card {
+    min-width: 320px;
+    padding: 30px 30px;
+  }
+
+  .add-weblink-title {
+    font-size: 20px;
+  }
+}
+
+/* ===============================
+   576px - Large Phones
+================================ */
+@media (max-width: 576px) {
+
+  .add-weblink-container {
+    margin-top: calc(15vh + 40px);
+  }
+
+  .add-weblink-card {
+    width: 260px;
+    min-width: 0;
+    padding: 25px;
+  }
+
+  .add-weblink-input {
+    width: 100%;
+  }
+
+  .add-weblink-buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .add-weblink-btn {
+    width: 100%;
+  }
+}
+
+/* ===============================
+   480px - Small Phones
+================================ */
+@media (max-width: 480px) {
+
+  .add-weblink-container {
+    margin-top: calc(15vh + 40px);
+  }
+
+  .add-weblink-card {
+    width: 240px;
+    padding: 20px;
+  }
+
+  .add-weblink-title {
+    font-size: 19px;
+  }
+
+  .add-weblink-input {
+    font-size: 13px;
+  }
+}
+
+/* ===============================
+   375px - Smaller Devices
+================================ */
+@media (max-width: 375px) {
+
+  .add-weblink-container {
+    margin-top: calc(15vh + 40px);
+  }
+
+  .add-weblink-card {
+    width: 220px;
+    padding: 18px;
+  }
+
+  .add-weblink-btn {
+    width: 100%;
+    font-size: 13px;
+  }
+}
+
+/* ===============================
+   320px - Extra Small Phones
+================================ */
+@media (max-width: 320px) {
+
+  .add-weblink-container {
+    margin-top: calc(15vh + 30px);
+  }
+
+  .add-weblink-card {
+    width: 200px;
+    padding: 15px;
+  }
+
+  .add-weblink-title {
+    font-size: 17px;
+  }
+}

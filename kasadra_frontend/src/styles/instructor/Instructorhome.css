@@ -1,0 +1,289 @@
+/* ===== General Container ===== */
+.instructor-home-container {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fefefe; /* very light, almost white background */
+  min-height: 100vh;
+  color: #1f2937;
+  padding: 20px;
+  /* margin-top: 60px; */
+}
+
+/* ===== Sidebar Layout ===== */
+.instructor-sidebar-layout {
+  position: fixed;
+  margin-top: 60px;
+  left: 0;
+  width: 250px;  
+  height: calc(100vh - 60px);
+
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background: rgba(255, 255, 255, 0.9); /* lighter, clear glass effect */
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03); /* subtle shadow for depth */
+  transition: all 0.3s ease;
+  margin-right: 5px;
+  height: 550px;
+}
+
+/* FIX: Collapsed sidebar */
+.instructor-sidebar-layout.collapsed {
+  width: 80px;
+}
+
+/* Collapsed sidebar */
+.instructor-sidebar-layout.collapsed .sidebar {
+  width: 80px;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-header h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.collapse-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #3b82f6;
+  transition: transform 0.3s;
+}
+
+.collapse-btn:hover {
+  transform: rotate(90deg);
+}
+
+/* Sidebar Nav Links */
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #111827;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.sidebar-nav a span {
+  margin-left: 12px;
+}
+
+.sidebar-nav a svg {
+  font-size: 20px;
+  color: #3b82f6;
+  transition: transform 0.25s, color 0.25s;
+}
+
+.sidebar-nav a:hover {
+  background: rgba(59, 130, 246, 0.08); /* very light hover */
+  transform: translateX(3px);
+}
+
+.sidebar-nav a:hover svg {
+  transform: scale(1.1);
+}
+
+/* Active link */
+.sidebar-nav a.active {
+  background: rgba(59, 130, 246, 0.15);
+  font-weight: 600;
+}
+
+/* Hide text on collapsed sidebar */
+.instructor-sidebar-layout.collapsed .sidebar-nav a span {
+  display: none;
+}
+
+/* ===== Main Content ===== */
+.main-content {
+  flex: 1;
+  padding: 30px 40px;
+  background: rgba(255, 255, 255, 0.95); /* very light, almost pure white */
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02); /* minimal shadow for floating effect */
+  transition: all 0.3s ease;
+}
+
+.main-content h2 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 15px;
+}
+
+.main-content p {
+  font-size: 16px;
+  color: #4b5563;
+}
+
+/* ================================
+   SCHEDULE DROPDOWN (MATCHED UI)
+   ================================ */
+
+.sidebar-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Header same as sidebar links */
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;            /* SAME as .sidebar-nav a */
+  border-radius: 12px;           /* SAME radius */
+  color: #111827;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  gap: 10px;
+  font-size: 15px;
+}
+
+/* Icon same as sidebar */
+.dropdown-header svg {
+  font-size: 20px;
+  color: #3b82f6;                /* SAME blue */
+}
+
+/* Chevron */
+.dropdown-header::after {
+  content: "▸";
+  margin-left: auto;
+  font-size: 18px;
+  color: #1b1c1d;
+  transition: transform 0.25s ease;
+  
+}
+.sidebar-dropdown.open .dropdown-menu {
+  max-height: 300px;   /* enough space for items */
+  opacity: 1;
+  transform: translateY(0);
+}
+.instructor-sidebar-layout.collapsed .dropdown-menu {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+
+/* Hover exactly like sidebar */
+.dropdown-header:hover {
+  background: rgba(59, 130, 246, 0.08);
+  transform: translateX(3px);
+
+}
+
+/* Rotate arrow */
+.sidebar-dropdown.open .dropdown-header::after {
+  transform: rotate(90deg);
+}
+
+/* Dropdown list */
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  margin-left: 39px;            /* aligns under icon */
+  gap: 6px;
+  border: none;
+  margin-top: 60px;
+   max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-8px);
+
+  transition:
+    max-height 0.7s ease,
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+/* Dropdown links */
+.dropdown-menu a {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #4b5563;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+/* Hover same as sidebar */
+.dropdown-menu a:hover {
+  background: rgba(59, 130, 246, 0.08);
+  color: #111827;
+}
+
+/* Active */
+.dropdown-menu a.active {
+  background: rgba(59, 130, 246, 0.15);
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Hide when collapsed */
+.instructor-sidebar-layout.collapsed .dropdown-menu,
+.instructor-sidebar-layout.collapsed .dropdown-header::after {
+  display: none;
+}
+
+
+/* ===== Responsive ===== */
+@media screen and (max-width: 1024px) {
+  .instructor-sidebar-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .main-content {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
+/* Push main content to the right so it doesn’t overlap with sidebar */
+.main-content,
+.um-wrap,
+.content-wrapper {
+  margin-left: 270px !important;   /* match your sidebar width */
+}
+
+.instructor-sidebar-layout {
+  width: 270px !important;         /* sidebar fixed width */
+}
+
+/* When sidebar is collapsed */
+.instructor-sidebar-layout.collapsed {
+  width: 85px !important;
+}
+
+.instructor-sidebar-layout.collapsed ~ .main-content,
+.instructor-sidebar-layout.collapsed ~ .um-wrap,
+.instructor-sidebar-layout.collapsed ~ .content-wrapper {
+  margin-left: 100px !important;
+}

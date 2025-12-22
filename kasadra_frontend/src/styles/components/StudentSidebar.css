@@ -1,0 +1,223 @@
+/* -----------------------------
+   SIDEBAR CONTAINER
+----------------------------- */
+.student-sidebar-container {
+  width: 240px;
+  height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+
+  position: fixed;
+  top: 110px;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.student-sidebar-collapsed {
+  width: 72px;
+}
+
+/* -----------------------------
+   HEADER
+----------------------------- */
+.student-sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.student-sidebar-back-btn,
+.student-sidebar-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #374151;
+  flex-shrink: 0;
+}
+
+.student-sidebar-username {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 500;
+  color: #374151;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* -----------------------------
+   MENU
+----------------------------- */
+.student-sidebar-menu {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.student-sidebar-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.student-sidebar-menu::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 4px;
+}
+
+.student-sidebar-menu::-webkit-scrollbar-thumb:hover {
+  background-color: #9ca3af;
+}
+
+/* -----------------------------
+   MENU ITEMS
+----------------------------- */
+.student-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: #6b7280;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.student-sidebar-item:hover {
+  background: #1E88E5;
+  color: white;
+}
+
+.student-sidebar-active {
+
+  background: #1E88E5;
+  color: white;
+}
+
+/* ICON */
+.student-sidebar-icon {
+  min-width: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+/* LABEL */
+.student-sidebar-label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* -----------------------------
+   LESSONS SECTION
+----------------------------- */
+.student-sidebar-lessons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+.student-sidebar-lesson {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Lesson title */
+.student-sidebar-lesson-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #374151;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.student-sidebar-lesson-title:hover {
+  background: #1E88E5;
+  color: white;
+}
+
+.student-sidebar-lesson-title-active {
+  background: #1E88E5;
+  color: #f0eff5;
+}
+
+/* Arrow rotation */
+.lesson-arrow {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.lesson-arrow.expanded {
+  transform: rotate(90deg);
+}
+
+/* Lesson contents */
+.student-sidebar-lesson-contents {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-left: 24px;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.student-sidebar-lesson-contents.expanded {
+  max-height: 999px;
+  /* allow all content */
+  opacity: 1;
+}
+
+/* Content items */
+.student-sidebar-content-item {
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #6b7280;
+  border-radius: 5px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.student-sidebar-content-item:hover {
+  font-weight: bold;
+  color: #4f46e5;
+}
+
+.student-sidebar-content-item-active {
+  font-weight: bold;
+  color: #4f46e5;
+   font-size: 16px;
+}
+
+/* -----------------------------
+   COLLAPSED SIDEBAR
+----------------------------- */
+.student-sidebar-collapsed .student-sidebar-lesson-title {
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.student-sidebar-collapsed .student-sidebar-lesson-contents {
+  display: none;
+}
+
+.student-sidebar-collapsed .student-sidebar-username {
+  display: none;
+}
+
+.student-sidebar-collapsed .student-sidebar-label {
+  display: none;
+}

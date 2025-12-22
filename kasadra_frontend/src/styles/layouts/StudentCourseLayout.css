@@ -1,0 +1,19 @@
+.student-course-layout {
+  display: flex;
+  margin-top: 64px; /* same as navbar height */
+}
+
+/* Main content */
+.student-course-content {
+  flex: 1;
+  padding: 24px;
+  background: #f9fafb;
+
+  margin-left: 240px; /* 🔥 space for sidebar */
+  transition: margin-left 0.3s ease;
+}
+
+/* When sidebar collapsed */
+.student-course-content.collapsed {
+  margin-left: 72px;
+}

@@ -1,0 +1,184 @@
+/* =========================
+   BASE STYLES
+========================= */
+.addpdf-body {
+  margin-top: 170px;
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.addpdf-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  /* margin-left: 500px; */
+}
+
+.addpdf-upload-box {
+  background-color: #fff;
+  width: 350px;
+  margin: 20px auto;
+  padding: 10px 30px 30px;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+}
+
+.addpdf-title {
+  margin-top: 28px;
+  margin-bottom: 25px;
+  color: #000;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.addpdf-input-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.addpdf-label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.addpdf-input {
+  border: 1px solid #999;
+  padding: 6px 10px;
+  width: 100%;
+  max-width: 220px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.addpdf-file-name {
+  margin-top: 5px;
+  font-size: 12px !important;
+  color: #350808;
+
+  max-width: 220px;
+  /* match the width of file input */
+  white-space: normal;
+  /* allow multi-line wrap */
+  word-break: break-word;
+  /* break long words */
+  overflow-wrap: break-word;
+}
+
+
+
+
+
+.addpdf-btn-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.addpdf-btn {
+  background-color: #00a7e1;
+  color: white;
+  border: none;
+  padding: 5px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.addpdf-btn:hover {
+  background-color: #008cc2;
+}
+
+.addpdf-clear {
+  background-color: #c71212;
+}
+
+.addpdf-clear:hover {
+  background-color: #a50f0f;
+}
+
+.addpdf-success {
+  color: #009245;
+}
+
+.addpdf-error {
+  color: #d32f2f;
+}
+
+/* ===================================================
+   RESPONSIVE BREAKPOINTS
+=================================================== */
+
+/* ---------- 576px ---------- */
+@media (max-width: 576px) {
+  .addpdf-body {
+    margin-top: calc(15vh + 25px);
+  }
+
+  .addpdf-upload-box {
+    width: 300px;
+    padding: 15px 20px 25px;
+  }
+
+  .addpdf-title {
+    font-size: 20px;
+  }
+}
+
+/* ---------- 480px ---------- */
+@media (max-width: 480px) {
+  .addpdf-body {
+    margin-top: calc(15vh + 20px);
+  }
+
+  .addpdf-upload-box {
+    width: 260px;
+    padding: 12px 18px 22px;
+  }
+
+  .addpdf-input-row {
+    margin-left: 10px;
+  }
+
+  .addpdf-btn-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ---------- 375px ---------- */
+@media (max-width: 375px) {
+  .addpdf-body {
+    margin-top: calc(15vh + 18px);
+  }
+
+  .addpdf-upload-box {
+    width: 240px;
+    padding: 10px 15px 20px;
+  }
+
+  .addpdf-btn {
+    width: 100%;
+  }
+}
+
+/* ---------- 320px ---------- */
+@media (max-width: 320px) {
+  .addpdf-body {
+    margin-top: calc(15vh + 15px);
+  }
+
+  .addpdf-upload-box {
+    width: 220px;
+    padding: 8px 12px 18px;
+  }
+
+  .addpdf-title {
+    font-size: 18px;
+  }
+}

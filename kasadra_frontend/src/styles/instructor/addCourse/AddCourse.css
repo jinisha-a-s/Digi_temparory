@@ -1,0 +1,191 @@
+/* container */
+.ac-wrap {
+  padding: 20px;
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+/* header */
+.ac-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding-top: 100px;
+  margin-top: 30px;
+}
+
+.ac-title {
+  display: flex;
+  gap: 1rem;
+}
+
+.ac-title .subtitle {
+  margin: 2px 0 0;
+  font-size: 23px;
+  font-weight: 600;
+
+  color: #666;
+}
+
+/* controls */
+.ac-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-add {
+  border: 1px solid #0EA5E9;
+  background: white;
+  color: #0EA5E9;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background: #0EA5E9;
+  color: white;
+}
+
+/* card */
+.ac-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 8px;
+  box-shadow: 0 2px 10px rgba(25, 25, 25, 0.05);
+  /* overflow: hidden; */
+  
+  
+}
+
+/* table */
+.ac-custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.ac-custom-table th,
+.ac-custom-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.ac-custom-table thead th {
+  background: #0EA5E9;
+  font-weight: 600;
+  color: white;
+}
+
+/* row hover */
+.ac-custom-table tbody tr.table-row:hover,
+.ac-custom-table tbody tr.table-row:focus {
+  background: #f2f8ff;
+  cursor: pointer;
+  outline: none;
+}
+
+/* empty row */
+.ac-empty-row td {
+  padding: 24px;
+  text-align: center;
+  color: #666;
+}
+
+/* actions */
+.btn-action {
+  border: 1px solid #d0d5dd;
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin-right: 6px;
+  font-size: 13px;
+  background: white;
+  color: #0b6aa0;
+}
+
+.btn-action:hover {
+  background: #0EA5E9;
+  color: white;
+}
+
+
+
+/* ============================ */
+/* Activities Page - Responsive Media Only */
+/* Navbar height: 15vh considered with calc() */
+/* ============================ */
+
+/* Large desktops (2000px - 1440px) */
+@media (max-width: 2000px) {
+  .ac-wrap { padding: 3rem 4rem; margin-top: calc(0vh + 0vh); }
+  .ac-title .subtitle { font-size: 25px; margin-top: calc(2px + 15vh/20); }
+  .btn-add { font-size: 15px; padding: 10px 16px; }
+  .ac-custom-table th, .ac-custom-table td { font-size: 15px; padding: 14px 16px; }
+}
+
+/* Desktop (1440px - 1200px) */
+@media (max-width: 1440px) {
+  .ac-wrap { padding: 2.5rem 3rem; margin-top: calc(0vh + 0vh); }
+  .ac-title .subtitle { font-size: 24px; margin-top: calc(2px + 15vh/20); }
+  .btn-add { font-size: 14px; padding: 9px 15px; }
+  .ac-custom-table th, .ac-custom-table td { font-size: 14px; padding: 13px 15px; }
+}
+
+/* Laptop / Small desktops (1200px - 992px) */
+@media (max-width: 1200px) {
+  .ac-wrap { padding: 2rem 2.5rem; margin-top: calc(0vh + 0vh); }
+  .ac-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .ac-controls { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+  .btn-add { width: auto; }
+  .ac-custom-table th, .ac-custom-table td { font-size: 13.5px; padding: 12px 14px; }
+}
+
+/* Tablets (992px - 768px) */
+@media (max-width: 1024px) {
+  .ac-wrap { padding: 1.75rem 2rem; margin-top: calc(0vh + 4vh); }
+  .ac-title .subtitle { font-size: 22px; margin-top: calc(2px + 15vh/20); }
+  .ac-controls { flex-direction: column; gap: 6px; }
+  .ac-custom-table th, .ac-custom-table td { font-size: 13px; padding: 11px 13px; }
+}
+
+/* Small tablets / Large mobiles (768px - 576px) */
+@media (max-width: 768px) {
+  .ac-wrap { padding: 1.5rem 1.5rem; margin-top: calc(0vh + 2vh); }
+  .ac-header { flex-direction: column; align-items: stretch; gap: 0.4rem; }
+  .ac-title .subtitle { font-size: 20px; margin-top: calc(2px + 15vh/25); }
+  .ac-controls { flex-direction: column; gap: 5px; }
+  .btn-add { width: 100%; font-size: 13px; padding: 8px 12px; }
+  .ac-card { overflow-x: auto; padding: calc(8px + 15vh/50); }
+  .ac-custom-table { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .ac-custom-table th, .ac-custom-table td { white-space: nowrap; font-size: 12.5px; padding: calc(10px + 15vh/50) calc(12px + 15vh/50); }
+  .btn-action { font-size: 12px; padding: calc(5px + 15vh/50) calc(8px + 15vh/50); margin-right: 4px; }
+}
+
+/* Mobile (576px) */
+@media (max-width: 576px) {
+  .ac-wrap { padding: 1rem 1rem; margin-top: calc(0vh + 0vh); }
+  .ac-header { flex-direction: column; align-items: stretch; gap: 0.3rem; }
+  .ac-title .subtitle { font-size: 18px; margin-top: calc(2px + 15vh/25); }
+  .ac-controls { flex-direction: column; gap: 4px; }
+  .btn-add { width: 100%; font-size: 12px; padding: calc(6px + 15vh/100) calc(10px + 15vh/100); }
+  .ac-card { padding: calc(5px + 15vh/100); overflow-x: auto; }
+  .ac-custom-table { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .ac-custom-table th, .ac-custom-table td { white-space: nowrap; font-size: 11.5px; padding: calc(8px + 15vh/100) calc(10px + 15vh/100); }
+  .btn-action { font-size: 11px; padding: calc(4px + 15vh/150) calc(7px + 15vh/150); margin-right: 3px; }
+}
+
+/* Extra small mobiles (<480px) */
+@media (max-width: 480px) {
+  .ac-wrap { padding: 0.75rem 0.75rem; margin-top: calc(0vh + 0vh); }
+  .ac-title .subtitle { font-size: 16px; margin-top: calc(2px + 15vh/30); }
+  .ac-controls { gap: 3px; }
+  .btn-add { font-size: 11px; padding: calc(5px + 15vh/150) calc(8px + 15vh/150); }
+  .ac-card { padding: calc(4px + 15vh/200); }
+  .ac-custom-table th, .ac-custom-table td { font-size: 10.5px; padding: calc(6px + 15vh/200) calc(8px + 15vh/200); }
+  .btn-action { font-size: 10px; padding: calc(3px + 15vh/200) calc(6px + 15vh/200); margin-right: 2px; }
+}

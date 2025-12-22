@@ -1,0 +1,181 @@
+/* 🌟 Overall Page Layout */
+.new-course-pages {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* 🧭 Container */
+.new-course-containers {
+  max-width: 430px;
+  padding: 0 10px;
+  margin-left: 30px;
+  font-size: 13px;
+}
+
+/* 🏷️ Heading */
+.new-course-container-container h1 {
+  text-align: center;
+  font-weight: 700;
+  margin-top: calc(15vh + 20px);
+  margin-bottom: 40px;
+  color: #261d57;
+}
+
+/* 📜 No Course Paragraph */
+.new-course-container-container .course-np p {
+  font-size: 29px;
+  color: #2563eb;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* 🌀 Loading Spinner */
+.spinner {
+  text-align: center;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #007bff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 40px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 🧱 Grid Layout */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  padding: 20px;
+}
+
+/* 🎴 Course Card */
+.course-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers image, title, button */
+  justify-content: center;
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* 📷 Thumbnail IMAGE CENTER */
+.course-thumbnail {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  border-bottom: 3px solid #007bff;
+  margin: 0 auto 15px;  /* PERFECT CENTER */
+  display: block;
+}
+
+/* 🏷️ Title */
+.course-card h3 {
+  font-size: 1.2rem;
+  color: #1d3557;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* 📝 Description */
+.course-cards p {
+  font-size: 17px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* 🔘 Button */
+.course-card button {
+  width: 120px;
+  height: 38px;
+  border: none;
+  border-radius: 7px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  margin: 15px auto 0; /* button centered */
+  display: block;
+}
+
+.course-card button:hover {
+  background-color: #0056b3;
+}
+
+/* ❌ No Courses */
+.course-np p {
+  text-align: center;
+  color: #1438a5;
+  margin-top: 30px;
+  font-weight: 500;
+}
+
+/* Container after navbar */
+.new-course-container-container {
+  margin-top: calc(15vh + 20px);
+}
+
+/* 📱 Responsive — Mobile & Tablet */
+@media (max-width: 991px) {
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .course-thumbnail {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .course-thumbnail {
+    width: 100px;
+    height: 100px;
+  }
+
+  .course-card button {
+    width: 100px;
+    height: 34px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .course-thumbnail {
+    width: 90px;
+    height: 90px;
+  }
+
+  .course-card {
+    padding: 15px;
+  }
+}

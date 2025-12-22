@@ -1,0 +1,131 @@
+/* Animation for calendar card */
+@keyframes zoomPopCalendar {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Apply animation to card */
+.student-calendar-schedule-card {
+  animation: zoomPopCalendar 0.5s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f0f0f0; /* optional like your zoom card */
+}
+
+/* Hover effect */
+.student-calendar-schedule-card:hover {
+  transform: translateY(-4px);
+  /* Optional: add shadow on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+
+/* Container */
+.student-calendar-container {
+  display: flex;
+  background-color: #ffffff;
+  min-height: 100vh;
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Content */
+.student-calendar-content-wrapper {
+  flex: 1;
+  padding: 40px 20px;
+  margin-left: 20px; /* remove or set 0 if no sidebar */
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+/* Title */
+.student-calendar-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #0b2e59;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Card */
+.student-calendar-schedule-card {
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-top: 20px;
+}
+
+/* Table */
+.student-calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.student-calendar-table th {
+  background-color: #041b41;
+  color: #fff;
+  padding: 14px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.student-calendar-table td {
+  padding: 14px 18px;
+  font-size: 15px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+/* Hover */
+.student-calendar-table tbody tr:hover {
+  background-color: #f0f6ff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Lesson title */
+.student-calendar-lesson-title {
+  font-weight: 600;
+  color: #003e8a;
+}
+
+/* Timing */
+.student-calendar-timing-tag {
+  background: #dbe8ff;
+  color: #003b87;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  display: inline-block;
+}
+
+/* Messages */
+.student-calendar-message {
+  padding: 18px;
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+}
+
+.student-calendar-error {
+  padding: 18px;
+  font-size: 18px;
+  color: #be0000;
+  background: #ffe9e9;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* Striped rows */
+.student-calendar-table tbody tr:nth-child(even) {
+  background-color: #fafcff;
+}

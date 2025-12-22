@@ -1,0 +1,225 @@
+/* Set navbar height (change if different) */
+:root {
+  --navbar-height: 70px;
+}
+
+.add-lab-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - var(--navbar-height));
+  padding-top: var(--navbar-height);
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.add-lab-header {
+  display: flex;
+  gap: 90px;
+}
+
+.add-lab-card {
+  background: #fff;
+  padding: 30px;
+  width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.add-lab-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 7px;
+  margin-bottom: 25px;
+}
+
+.add-lab-form {
+  text-align: left;
+}
+
+.add-lab-field {
+  margin-bottom: 20px;
+}
+
+.add-lab-label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.add-lab-input,
+.add-lab-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.add-lab-input:focus,
+.add-lab-textarea:focus {
+  border-color: #009dff;
+}
+
+.add-lab-textarea {
+  min-height: 80px;
+  resize: none;
+}
+
+/* File upload styling */
+.add-lab-file-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-lab-file-input:hover {
+  border-color: #009dff;
+}
+
+.add-lab-file-name {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #555;
+  word-break: break-all;
+}
+
+.add-lab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.add-lab-ok-btn,
+.add-lab-clear-btn {
+  width: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-lab-ok-btn {
+  background-color: #009dff;
+}
+
+.add-lab-ok-btn:hover {
+  background-color: #007fd1;
+}
+
+.add-lab-clear-btn {
+  background-color: #ff4b4b;
+}
+
+.add-lab-clear-btn:hover {
+  background-color: #e03e3e;
+}
+
+/* Error message styling */
+.add-lab-error {
+  color: #e63946;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.addpdf-input-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.addpdf-label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.addpdf-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+
+.addpdf-input:hover,
+.addpdf-input:focus {
+  border-color: #009dff;
+}
+
+.addpdf-file-preview {
+  font-size: 13px;
+  color: #555;
+  word-break: break-all;
+}
+
+.add-lab-success {
+  color: #1b7a3f;
+  padding: 10px 15px;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  width: fit-content;
+  animation: fadeSlideIn 0.4s ease-out;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Tablets - below 900px */
+@media (max-width: 900px) {
+  .add-lab-card {
+    width: 350px;
+  }
+}
+
+/* Large mobiles - below 600px */
+@media (max-width: 600px) {
+  .add-lab-card {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+/* Small mobiles - below 400px */
+@media (max-width: 400px) {
+  .add-lab-title {
+    font-size: 18px;
+  }
+
+  .add-lab-card {
+    width: 92%;
+  }
+}

@@ -1,0 +1,208 @@
+/* Keep original background unchanged */
+
+.zoom-container-default-bg {
+  display: flex;
+  justify-content: center;      /* horizontal center */
+  align-items: flex-start;      /* allow vertical movement */
+  background-color: white;
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  min-height: calc(100vh - 70px); /* adjust if navbar height differs */
+  padding-top: 60px;            /* 🔥 THIS moves card down */
+}
+
+/* ------------------------------
+   MODEL 6 — CLEAN ROUNDED DESIGN
+------------------------------ */
+
+.zoom-model-6-card {
+  
+  width: 420px;
+ margin-top: 40px;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 35px 30px;
+  /* box-shadow: 0 12px 35px rgba(0,0,0,0.12); */
+  animation: zoomPop 0.5s ease;
+  transition: 0.3s ease;
+  border: 1px solid #f0f0f0;
+} 
+
+.zoom-model-6-card:hover {
+  transform: translateY(-4px);
+  /* box-shadow: 0 15px 40px rgba(0,0,0,0.16); */
+} 
+
+.zoom-model-6-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2f2f2f;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.zoom-model-6-box {
+  background: #f7f7f7;
+  border-radius: 20px;
+  padding: 20px;
+  /* border-left: 5px solid #6c5ce7; */
+}
+
+.zoom-model-6-label {
+  color: #333;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.zoom-model-6-link {
+  margin: 12px 0;
+  font-weight: 600;
+  color: #6c5ce7;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  word-break: break-all;
+  font-size: 15px;
+}
+
+.link-icon {
+  color: #6c5ce7;
+}
+
+.zoom-model-6-btn {
+  width: 100%;
+  padding: 12px;
+  background: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.zoom-model-6-btn:hover {
+  background: #5843d4;
+  transform: translateY(-2px);
+}
+
+.zoom-model-6-note {
+  margin-top: 18px;
+  text-align: center;
+  color: #666;
+  font-size: 13px;
+}
+
+/* Animation */
+@keyframes zoomPop {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* ===========================================
+   PROFESSIONAL RESPONSIVE MEDIA QUERIES
+=========================================== */
+
+/* ---------- 1200px — Large Screens ---------- */
+@media (max-width: 1200px) {
+  .zoom-container-default-bg {
+    gap: 120px;
+    justify-content: flex-start;
+  }
+
+  .zoom-model-6-card {
+    width: 380px;
+    padding: 30px;
+  }
+}
+
+/* ---------- 992px — Tablets ---------- */
+@media (max-width: 992px) {
+  .zoom-container-default-bg {
+    flex-direction: row;
+    align-items: center;
+    padding-left: 20px;
+    gap: 40px;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+
+  .zoom-model-6-card {
+    width: 90%;
+    max-width: 420px;
+  }
+}
+
+/* ---------- 768px — Small Tablets / Large Phones ---------- */
+@media (max-width: 768px) {
+  .zoom-container-default-bg {
+    gap: 25px;
+    padding-left: 15px;
+  }
+
+  .zoom-model-6-card {
+    width: 90%;
+    padding: 25px;
+  }
+
+  .zoom-model-6-title {
+    font-size: 22px;
+  }
+
+  .zoom-model-6-link {
+    font-size: 14px;
+  }
+}
+
+/* ---------- 576px — Phones ---------- */
+@media (max-width: 576px) {
+  .zoom-container-default-bg {
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .zoom-model-6-card {
+    width: 100%;
+    padding: 22px;
+    border-radius: 20px;
+  }
+
+  .zoom-model-6-title {
+    font-size: 20px;
+  }
+
+  .zoom-model-6-btn {
+    font-size: 15px;
+  }
+}
+
+/* ---------- 400px — Small Phones ---------- */
+@media (max-width: 400px) {
+  .zoom-model-6-card {
+    padding: 18px;
+  }
+
+  .zoom-model-6-title {
+    font-size: 18px;
+  }
+
+  .zoom-model-6-label,
+  .zoom-model-6-link {
+    font-size: 13px;
+  }
+
+  .zoom-model-6-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+}

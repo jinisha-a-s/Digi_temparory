@@ -1,0 +1,548 @@
+/* ========================================= */
+/* 📦 Assign Batch - Container */
+/* ========================================= */
+.assign-batch-wrap {
+    padding: 2rem;
+    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #222;
+    margin-top: 10vh;
+    /* avoids overlap with navbar */
+}
+
+.assign-batch-page {
+    margin-top: 30px;
+    /* background-color: #004085; */
+    height: fit-content;
+    width: 980px;
+    margin-left: 250px;
+    overflow: hidden;
+    position: fixed;
+    top: 100px;
+    left: 10px;
+    width: 1000px;
+    /* height: 60px; */
+    /* IMPORTANT */
+    z-index: 1000;
+
+}
+
+
+.assign-batch-all-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+
+}
+
+/* ========================================= */
+/* 🏷️ Header Row: Title + Actions */
+/* ========================================= */
+.assign-batch-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+
+}
+
+.assign-batch-header-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.assign-batch-title {
+    font-size: 20px;
+    font-weight: 580;
+    padding-top: 20px;
+    color: #666;
+}
+
+/* .assign-batch-subtitle {
+    font-size: 1rem;
+    color: #d31212;
+    margin-top: 0.2rem;
+} */
+
+.assign-batch-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+/* ========================================= */
+/* ⚙️ Controls: Course + Batch Selection */
+/* ========================================= */
+.assign-batch-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.assign-batch-label {
+    font-size: 0.9rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.assign-batch-select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    background: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.assign-batch-select:hover {
+    border-color: #0056b3;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.assign-batch-select:focus {
+    outline: none;
+    border-color: #004085;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.assign-batch-search-btn {
+    padding: 8px 20px;
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.assign-batch-search-btn:hover {
+    background: #e2e2e2;
+    border-color: #999;
+}
+
+/* Green button for ASSIGN */
+.assign-btn {
+    width: 80px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    background-color: #28a745;
+    /* green */
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.assign-btn:hover {
+    background-color: #1e7e34;
+}
+
+/* Orange button for MOVE */
+.move-btn {
+    width: 80px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    background-color: #ffb703;
+    /* orange */
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.move-btn:hover {
+    background-color: #fb8500;
+}
+
+
+/* ========================================= */
+/* 🗂️ Card around Table */
+/* ========================================= */
+.assign-batch-card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0.125rem 0.625rem rgba(25, 25, 25, 0.05);
+    overflow: hidden;
+}
+
+/* ========================================= */
+/* 📋 Table Styles */
+/* ========================================= */
+.assign-batch-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.assign-batch-table th,
+.assign-batch-table td {
+    padding: 0.75rem 0.875rem;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+    font-size: 0.875rem;
+}
+
+.assign-batch-table thead th {
+    background: #0ea5e9;
+    font-weight: 600;
+    color: white;
+}
+
+.assign-batch-table tbody tr.assign-batch-row:hover,
+.assign-batch-table tbody tr.assign-batch-row:focus {
+    background: #f2f8ff;
+    cursor: pointer;
+    outline: none;
+}
+
+.assign-batch-empty-row td {
+    padding: 1.5rem;
+    text-align: center;
+    color: #666;
+}
+
+/* ========================================= */
+/* 🖱️ Action Buttons */
+/* ========================================= */
+.assign-batch-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding-left: 450px; */
+    gap: 5rem;
+    margin-top: 1rem;
+    /* background-color: blueviolet; */
+}
+
+.assign-batch-btn {
+    border: none;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.5rem;
+    /* margin-right: 0.5rem; */
+    font-size: 0.8125rem;
+    cursor: pointer;
+}
+
+.assign-batch-btn {
+    background: #28a745;
+    color: white;
+    font-size: medium;
+    font-weight: 600;
+    height: 40px;
+    width: 100px;
+}
+
+.assign-batch-btn:hover {
+    background: #1e7e34;
+    transition: all 0.2s ease-in-out;
+}
+
+.assign-batch-btn-create {
+    background: #0ea5e9;
+    color: white;
+    border-radius: 0.5rem;
+    font-size: medium;
+    font-weight: 600;
+    height: 40px;
+    width: 200px;
+    border: none;
+}
+
+.assign-batch-btn-create:hover {
+    background: #0664cf;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Search box wrapper */
+.assign-batch-search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Search input (hidden by default) */
+.assign-batch-search-input {
+    width: 0px;
+    opacity: 0;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Expanded input */
+.assign-batch-search-input.open {
+    width: 200px;
+    /* expand width */
+    opacity: 1;
+    margin-right: 10px;
+}
+
+/* Search button */
+.assign-batch-search-btn {
+    background-color: #ffffff;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.assign-batch-search-btn:hover {
+    background-color: #3867d6;
+}
+
+
+.assign-batch-table-wrapper {
+    max-height: 350px;
+    /* scroll area height */
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* border: 1px solid #ddd; */
+    /* border-radius: 8px; */
+}
+
+/* Sticky header */
+.assign-batch-table thead th {
+    position: sticky;
+    top: 0;
+    /* background: #fff; */
+    z-index: 10;
+}
+
+/* Table width fixed */
+.assign-batch-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* ===== Scrollbar Styling ===== */
+
+.assign-batch-table-wrapper::-webkit-scrollbar {
+    width: 6px;
+    /* Scrollbar width */
+}
+
+.assign-batch-table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Track color */
+
+}
+
+.assign-batch-table-wrapper::-webkit-scrollbar-thumb {
+    background: #c6c6c6;
+    /* Scroll thumb color */
+    border-radius: 10px;
+}
+
+.assign-batch-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #909090;
+    /* Darker on hover */
+}
+
+
+.assign-batch-btn-move {
+    background-color: #ffb703;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    margin: 0 10px;
+    transition: 0.2s;
+}
+
+.assign-batch-btn-move:hover {
+    background-color: #fb8500;
+}
+
+
+/* ========================================= */
+/* 📱 Responsive Media Queries with calc() */
+/* ========================================= */
+
+/* Default / Large Screens */
+.assign-batch-wrap {
+    padding: 2rem;
+    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #222;
+    margin-top: calc(10vh + 0rem);
+    /* add navbar height */
+}
+
+.assign-batch-istructor-home {
+
+    position: fixed;
+    top: 0;
+    /* IMPORTANT */
+    left: 0;
+    width: 100%;
+    height: 60px;
+    /* IMPORTANT */
+    background-color: #820e0e;
+    z-index: 1000;
+
+
+}
+
+/* Tablet Devices */
+@media (max-width: 992px) {
+    .assign-batch-wrap {
+        padding: 1.5rem;
+        margin-top: calc(10vh + 0rem);
+        /* top spacing adjusted */
+    }
+
+    .assign-batch-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .assign-batch-header-left {
+        gap: 15px;
+    }
+
+    .assign-batch-title {
+        font-size: 20px;
+        padding-top: 10px;
+    }
+
+    .assign-batch-actions {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .assign-batch-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .assign-batch-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 576px) {
+    .assign-batch-wrap {
+        padding: 1rem;
+        margin-top: calc(10vh + 0rem);
+        /* top spacing adjusted */
+    }
+
+    .assign-batch-title {
+        font-size: 18px;
+    }
+
+    .assign-batch-header-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .assign-batch-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .assign-batch-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+
+
+    .assign-batch-select {
+        width: 100%;
+        font-size: 0.85rem;
+    }
+
+    .assign-batch-table th,
+    .assign-batch-table td {
+        padding: 0.5rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .assign-batch-buttons {
+        gap: 0.5rem;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .assign-batch-btn,
+    .assign-batch-btn-create {
+        width: 100%;
+        height: 38px;
+        font-size: 0.875rem;
+    }
+}
+
+
+
+/* -------- Empty state row -------- */
+.assign-batch-table .empty-table-row td.empty-table-cell {
+    text-align: center;
+    padding: 48px 16px;
+    color: #4a5568;
+    /* muted text */
+    font-size: 24px;
+    font-weight: bold;
+    background: transparent;
+}
+
+/* -------- Selected row highlight -------- */
+.assign-batch-table tr.selected-row {
+    background-color: #eef8ff;
+    /* light blue highlight */
+}
+
+/* Slight hover for rows */
+.assign-batch-table tbody tr:hover {
+    background-color: #f7fbff;
+}
+
+/* -------- Info-icon style (small tooltip via title attr) -------- */
+.info-icon {
+    margin-left: 6px;
+    font-size: 12px;
+    color: #5a5a5a;
+    cursor: help;
+}
+
+/* Optional: nicer button tooltips (native titles will still show) */
+.assign-batch-btn[disabled],
+.assign-batch-btn-move[disabled] {
+    pointer-events: none;
+}
+
+/* Ensure checkbox column is not too wide */
+.assign-batch-table td:first-child {
+    width: 48px;
+    text-align: center;
+}

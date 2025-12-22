@@ -1,0 +1,376 @@
+/* ================================
+   WRAPPER
+================================ */
+.create-new-batch-page {
+  /* background: #f8f9fa; */
+  min-height: 100vh;
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* navbar */
+.create-new-batch-navbar {
+  margin-bottom: 20px;
+}
+
+/* Header */
+.create-new-batch-header {
+  display: flex;
+  align-items: center;
+  gap: 130px;
+  margin-left: 400px;
+  margin-top: calc(15vh + 20px);
+}
+
+.create-new-batch-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ================================
+   CENTERED CARD CONTAINER
+================================ */
+.create-new-batch-body {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.create-new-batch-container {
+  background: #fff;
+  width: 550px;
+  padding: 35px 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ================================
+   FORM
+================================ */
+.create-new-batch-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Label */
+.create-new-batch-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Input + dropdown */
+.create-new-batch-group input,
+.create-new-batch-group select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.2s;
+  /* background: #fafafa; */
+}
+
+.create-new-batch-group input:focus,
+.create-new-batch-group select:focus {
+   border-color: #00aaff;
+}
+
+/* Date inputs */
+.create-new-batch-group input[type="date"] {
+  cursor: pointer;
+}
+
+/* ================================
+   SUCCESS / ERROR
+================================ */
+.create-new-batch-message {
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.create-new-batch-error {
+  color: red;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.create-new-batch-success {
+  color: green;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+.create-new-batch-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.create-new-batch-btn {
+  width: 48%;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+/* Save Button */
+.create-new-batch-save {
+  background: #15c21d;
+  color: #fff;
+}
+.create-new-batch-save:hover {
+  background: #15c21d;
+}
+
+/* Clear Button */
+.create-new-batch-cancel {
+  background-color: #f44336;
+  color: #ffffff;
+}
+.create-new-batch-cancel:hover {
+  background-color: #d32f2f;
+}
+
+/* ================================
+   2560px
+================================ */
+@media (max-width: 2560px) {
+  .create-new-batch-header {
+    margin-left: 600px;
+    gap: 200px;
+    margin-top: calc(15vh + 20px);
+  }
+  .create-new-batch-container {
+    width: 650px;
+  }
+  .create-new-batch-title {
+    font-size: 30px;
+  }
+}
+
+/* ================================
+   1920px
+================================ */
+@media (max-width: 1920px) {
+  .create-new-batch-header {
+    margin-left: 500px;
+    gap: 160px;
+    margin-top: calc(15vh + 20px);
+  }
+  .create-new-batch-container {
+    width: 600px;
+  }
+}
+
+/* ================================
+   1600px
+================================ */
+@media (max-width: 1600px) {
+  .create-new-batch-header {
+    margin-left: 350px;
+    gap: 130px;
+    margin-top: calc(15vh + 20px);
+  }
+}
+
+/* ================================
+   1440px
+================================ */
+@media (max-width: 1440px) {
+  .create-new-batch-header {
+    margin-left: 280px;
+    gap: 100px;
+    margin-top: calc(15vh + 20px);
+  }
+}
+
+/* ================================
+   1280px
+================================ */
+@media (max-width: 1280px) {
+  .create-new-batch-header {
+    margin-left: 200px;
+    gap: 80px;
+    margin-top: calc(15vh + 20px);
+  }
+}
+
+/* ================================
+   1024px
+================================ */
+@media (max-width: 1024px) {
+  .create-new-batch-header {
+    margin-left: 80px;
+    gap: 40px;
+    margin-top: calc(15vh + 20px);
+  }
+
+  .create-new-batch-container {
+    width: 500px;
+    padding: 30px;
+  }
+
+  .create-new-batch-title {
+    font-size: 22px;
+  }
+}
+
+/* ================================
+   900px
+================================ */
+@media (max-width: 900px) {
+  .create-new-batch-header {
+    flex-direction: column;
+    margin-left: 0;
+    gap: 20px;
+    text-align: center;
+    margin-top: calc(15vh + 20px);
+  }
+
+  .create-new-batch-container {
+    width: 80%;
+  }
+}
+
+/* ================================
+   768px
+================================ */
+@media (max-width: 768px) {
+
+  .create-new-batch-header {
+    margin-left: 0;
+    gap: 15px;
+    text-align: center;
+    flex-direction: column;
+    margin-top: calc(15vh + 20px);
+  }
+
+  .create-new-batch-container {
+    width: 90%;
+    padding: 25px;
+  }
+
+  .create-new-batch-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .create-new-batch-btn {
+    width: 100%;
+  }
+}
+
+/* ================================
+   600px
+================================ */
+@media (max-width: 600px) {
+  .create-new-batch-title {
+    font-size: 20px;
+  }
+
+  .create-new-batch-container {
+    width: 95%;
+  }
+}
+
+/* ================================
+   480px
+================================ */
+@media (max-width: 480px) {
+
+  .create-new-batch-header {
+    margin-top: calc(15vh + 20px);
+  }
+
+  .create-new-batch-title {
+    font-size: 18px;
+  }
+
+  .create-new-batch-container {
+    width: 95%;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .create-new-batch-group label {
+    font-size: 13px;
+  }
+
+  .create-new-batch-group input,
+  .create-new-batch-group select {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+
+/* ================================
+   420px
+================================ */
+@media (max-width: 420px) {
+  .create-new-batch-title {
+    font-size: 17px;
+  }
+}
+
+/* ================================
+   360px
+================================ */
+@media (max-width: 360px) {
+
+  .create-new-batch-container {
+    width: 96%;
+    padding: 15px;
+  }
+
+  .create-new-batch-title {
+    font-size: 16px;
+  }
+
+  .create-new-batch-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* ================================
+   320px
+================================ */
+@media (max-width: 320px) {
+
+  .create-new-batch-container {
+    width: 96%;
+    padding: 12px;
+  }
+
+  .create-new-batch-title {
+    font-size: 15px;
+  }
+
+  .create-new-batch-group label {
+    font-size: 12px;
+  }
+
+  .create-new-batch-group input,
+  .create-new-batch-group select {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .create-new-batch-btn {
+    padding: 8px;
+    font-size: 13px;
+  }
+}

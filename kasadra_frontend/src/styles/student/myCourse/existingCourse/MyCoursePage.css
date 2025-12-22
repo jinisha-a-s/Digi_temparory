@@ -1,0 +1,97 @@
+/* MyCoursePage.css */
+
+/* Page background */
+.my-course-page {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  margin-top: 29px;
+}
+
+/* Section headings */
+.my-course-page h2 {
+  margin-bottom: 30px;
+  color: #0a3560;
+  font-weight: 600;
+  margin-top: 10px;
+  
+}
+
+/* Grid layout for courses */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  text-align: justify;
+  overflow: hidden;
+ 
+}
+
+/* Individual course card */
+.course-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.course-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.course-card h3 {
+  font-size: 1.25rem;
+  margin: 15px 10px 10px;
+  color: #212529;
+}
+
+.course-card p {
+  font-size: 0.95rem;
+  color: #495057;
+  padding: 0 15px 15px;
+  flex-grow: 1;
+  text-align: justify;
+}
+
+/* Button styling using Bootstrap */
+.course-card button {
+  margin: 15px;
+}
+
+/* No recommendation text */
+.no-recommendation {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #6c757d;
+  margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .course-card img {
+    height: 150px;
+  }
+
+  .course-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .course-card p {
+    font-size: 0.9rem;
+  }
+}

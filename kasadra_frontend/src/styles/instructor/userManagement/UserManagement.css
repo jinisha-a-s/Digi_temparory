@@ -1,0 +1,397 @@
+/* ========================================= */
+/* 📦 User Management - Container */
+/* ========================================= */
+.um-wrap {
+  /* padding: 2rem; */
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+  /* margin-top: 10vh; */
+  padding: 20px;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  position : relative;
+  margin-left: 260px;
+  /* Ensures it doesn't go under fixed navbar */
+}
+
+/* ========================================= */
+/* 🏷️ Header Section (Title + Subtitle) */
+/* ========================================= */
+.um-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-top: 0;
+  margin-top: 3rem;
+}
+
+.um-title {
+  display: flex;
+  gap: 1rem;
+}
+
+.um-title p {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 600;
+  /* color: #282828; */
+  color: #666;
+}
+
+.um-title .um-subtitle {
+  margin: 0.2rem 0 0;
+  font-size: 1.5rem;
+  /* color: #000000; */
+}
+
+/* ========================================= */
+/* ⚙️ Controls: Filter + Search */
+/* ========================================= */
+.um-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Filter dropdown */
+.um-filter-label {
+  font-size: 0.8rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.um-filter-select {
+  margin-left: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #dcdcdc;
+  background: #fff;
+  font-size: 0.9rem;
+}
+
+/* Search box */
+.um-search-box input {
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #dcdcdc;
+  min-width: 10rem;
+  font-size: 0.9rem;
+}
+
+.um-search-box input::placeholder {
+  font-size: 0.85rem;
+  color: #999;
+  font-style: italic;
+}
+
+.um-search-box input:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+}
+
+.um-search-box button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* ========================================= */
+/* 🗂️ Card around Table */
+/* ========================================= */
+.um-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 0.125rem 0.625rem rgba(25, 25, 25, 0.05);
+  overflow: hidden;
+}
+
+/* ========================================= */
+/* 📋 Table Styles */
+/* ========================================= */
+.um-custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.um-custom-table th,
+.um-custom-table td {
+  padding: 0.75rem 0.875rem;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+  font-size: 0.875rem;
+}
+
+.um-custom-table thead th {
+  background: #0ea5e9;
+  font-weight: 600;
+  color: white;
+}
+
+.um-custom-table tbody tr.um-table-row:hover,
+.um-custom-table tbody tr.um-table-row:focus {
+  background: #f2f8ff;
+  cursor: pointer;
+  outline: none;
+}
+
+.um-empty-row td {
+  padding: 1.5rem;
+  text-align: center;
+  color: #666;
+}
+
+/* ========================================= */
+/* 🟢 Status Labels */
+/* ========================================= */
+.um-status {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.um-status.newly {
+  color: #057a07;
+}
+
+.um-status.ongoing {
+  color: #0b6aa0;
+}
+
+.um-status.finished {
+  color: #b69608;
+}
+
+.um-status.discontinued {
+  color: #a70b0b;
+}
+
+/* ========================================= */
+/* 🖱️ Action Buttons */
+/* ========================================= */
+.btn-action {
+  border: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 0.8125rem;
+}
+
+.btn-action.view {
+  background: #fff;
+  border: 1px solid #d0d5dd;
+  color: #0b6aa0;
+}
+
+.btn-action.view:hover {
+  background: #0664cf;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+
+.um-main-container {
+  margin-top: -10px;
+  
+}
+ 
+.um-main-container .um-wrap {
+  margin-top: -500px;
+  position: relative;
+}
+
+/* ============================ */
+/* Responsive User Management CSS with calc() */
+/* ============================ */
+
+/* Large desktops (2000px - 1440px) */
+@media (max-width: 2000px) {
+  .um-wrap {
+    padding: 3rem 4rem;
+    margin-top: calc(0vh + 10vh); /* account for navbar height */
+  }
+}
+
+/* Desktop (1440px - 1200px) */
+@media (max-width: 1440px) {
+  .um-wrap {
+    padding: 2.5rem 3rem;
+    margin-top: calc(0vh + 10vh);
+  }
+}
+
+/* Laptop / Small desktops (1200px - 992px) */
+@media (max-width: 1200px) {
+  .um-wrap {
+    padding: 2rem 2.5rem;
+    margin-top: calc(0vh + 10vh);
+  }
+
+  .um-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .um-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .um-filter-select,
+  .um-search-box input {
+    width: 100%;
+  }
+}
+
+/* Tablets (992px - 768px) */
+@media (max-width: 992px) {
+  .um-wrap {
+    padding: 1.75rem 2rem;
+    margin-top: calc(0vh + 10vh);
+  }
+
+  .um-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .um-controls {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .um-filter-select,
+  .um-search-box input {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+}
+
+/* Small tablets / Large mobiles (768px - 576px) */
+@media (max-width: 768px) {
+  .um-wrap {
+    padding: 1.5rem 1.5rem;
+    margin-top: calc(0vh + 10vh);
+  }
+
+  .um-title p {
+    font-size: 18px;
+  }
+
+  .um-title .um-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .um-controls {
+    gap: 0.3rem;
+  }
+
+  .um-filter-select,
+  .um-search-box input {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile (576px - 480px) */
+@media (max-width: 576px) {
+  .um-wrap {
+    padding: 1rem 1rem;
+    margin-top: calc(0vh + 10vh);
+  }
+
+  .um-title p {
+    font-size: 16px;
+  }
+
+  .um-title .um-subtitle {
+    font-size: 1rem;
+  }
+
+  .um-controls {
+    gap: 0.25rem;
+  }
+
+  .um-filter-select,
+  .um-search-box input {
+    width: 100%;
+    font-size: 0.75rem;
+  }
+
+    .um-custom-table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .um-custom-table th,
+  .um-custom-table td {
+    white-space: nowrap;
+    font-size: 0.7rem;
+    padding: 0.35rem 0.35rem;
+  }
+
+  .um-card {
+    padding: 0.6rem;
+  }
+}
+
+/* Extra small mobiles (<480px) */
+@media (max-width: 480px) {
+  .um-wrap {
+    padding: 0.75rem 0.75rem;
+    margin-top: calc(0vh + 10vh);
+  }
+
+  .um-title p {
+    font-size: 14px;
+  }
+
+  .um-title .um-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .um-controls {
+    gap: 0.2rem;
+  }
+
+  .um-filter-select,
+  .um-search-box input {
+    width: 100%;
+    font-size: 0.7rem;
+  }
+
+  .um-custom-table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .um-custom-table th,
+  .um-custom-table td {
+    white-space: nowrap;
+    font-size: 0.7rem;
+    padding: 0.35rem 0.35rem;
+  }
+
+  .btn-action {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.3rem;
+  }
+
+  .um-card {
+    padding: 0.5rem;
+  }
+}
+

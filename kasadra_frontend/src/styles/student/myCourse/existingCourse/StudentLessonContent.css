@@ -1,0 +1,174 @@
+/* Animation for lesson content cards */
+@keyframes zoomPopLesson {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Apply animation and hover effect to lesson content items */
+.student-lesson-content-item,
+.student-lesson-content-header,
+.student-pdf-preview {
+  animation: zoomPopLesson 0.5s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 20px; /* optional rounded corners */
+  border: 1px solid #f0f0f0; /* subtle border like zoom card */
+  padding: 20px; /* optional padding */
+  background-color: #fff; /* ensure white background */
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* subtle shadow */
+}
+
+/* Hover lift effect */
+.student-lesson-content-item:hover,
+.student-lesson-content-header:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+.student-lesson-content-container {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: "Inter", sans-serif;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.student-lesson-content-navbar {
+  margin-bottom: 16px;
+}
+
+/* Header */
+.student-lesson-content-header {
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.student-lesson-content-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.student-lesson-content-description {
+  font-size: 16px;
+  color: #6b7280;
+}
+
+/* Content body */
+.student-lesson-content-body {
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.student-lesson-content-item {
+  padding: 12px;
+  border-radius: 6px;
+  
+  color: #111827;
+}
+
+/* PDF action buttons */
+.student-pdf-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.student-pdf-btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  background-color: #4f46e5;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.student-pdf-btn:hover {
+  background-color: #4338ca;
+}
+
+.student-pdf-btn.secondary {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.student-pdf-btn.secondary:hover {
+  background-color: #d1d5db;
+}
+
+/* PDF preview */
+/* .student-pdf-preview {
+  width: 100%;
+  height: 70vh;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+} */
+
+/* Notes list */
+.student-lesson-content-item ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+/* Quiz / Lab buttons */
+.student-quiz-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.student-quiz-btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  background-color: #4f46e5;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.student-quiz-btn:hover:not(:disabled) {
+  background-color: #4338ca;
+}
+
+.student-quiz-btn.secondary {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.student-quiz-btn.secondary:hover:not(:disabled) {
+  background-color: #d1d5db;
+}
+
+.student-quiz-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Completed text */
+.completed-text {
+  color: green;
+  font-weight: 500;
+  margin-top: 8px;
+}

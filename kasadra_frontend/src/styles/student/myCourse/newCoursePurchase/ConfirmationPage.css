@@ -1,0 +1,45 @@
+/* src/pages/confirmation/ConfirmationPage.css */
+
+.confirmation-page-body {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.confirmation-page-image {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+.confirmation-page-message {
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.confirmation-page-message span {
+    color: #0047ff;
+}
+
+.confirmation-page-button {
+    padding: 10px 25px;
+    background-color: #0047ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.confirmation-page-button:hover {
+    background-color: #002bb5;
+}

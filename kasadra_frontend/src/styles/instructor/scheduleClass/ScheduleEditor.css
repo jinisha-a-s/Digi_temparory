@@ -1,0 +1,242 @@
+/* =========================================================
+   MAIN CONTAINER — Prevent content from entering navbar
+========================================================= */
+.add-weblink-schedule-container {
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #fff;
+  min-height: 100vh;
+  padding: calc(12vh + 0px) 50px 20px;  /* keep below navbar */
+}
+
+/* Header */
+.add-weblink-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-weblink-logo {
+  color: #0c114d;
+  font-weight: 700;
+}
+
+.add-weblink-nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.add-weblink-nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.add-weblink-signout {
+  background-color: #009dff;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Divider */
+.add-weblink-divider {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #dcdcdc;
+}
+
+/* Filters */
+.add-weblink-filter-section {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin: 30px 0;
+}
+
+.add-weblink-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-weblink-filter label {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.add-weblink-filter select {
+  width: 160px;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.add-weblink-filter select:disabled {
+  background-color: #f1f1f1;
+}
+
+/* Table */
+.add-weblink-table-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.add-weblink-table {
+  width: 70%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.add-weblink-table th {
+  background-color: #0c114d;
+  color: white;
+  padding: 10px;
+}
+
+.add-weblink-table td {
+  padding: 10px;
+  border: 1px solid #000;
+}
+
+.add-weblink-table tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.add-weblink-table input {
+  width: 90%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+/* Edit Button */
+.add-weblink-edit-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.add-weblink-edit-btn {
+  background-color: #f6f6ff;
+  border: 1px solid #c1c1c1;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.add-weblink-edit-btn:hover {
+  background-color: #e2e8ff;
+}
+
+/* =========================================================
+   RESPONSIVE MEDIA QUERIES (2560px → 320px)
+========================================================= */
+
+/* 2560px - More spacing on large monitors */
+@media (min-width: 2560px) {
+    .add-weblink-schedule-container {
+    padding: calc(13vh + 0px) 20px 20px;
+  }
+  .add-weblink-table {
+    width: 80%;
+  }
+}
+
+/* 1440px */
+@media (max-width: 1440px) {
+  .add-weblink-table {
+    width: 65%;
+  }
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+  .add-weblink-filter-section {
+    gap: 40px;
+  }
+}
+
+/* 768px - Tablet */
+@media (max-width: 768px) {
+  .add-weblink-schedule-container {
+    padding: calc(12vh + 0px) 20px 20px;
+  }
+
+  .add-weblink-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .add-weblink-filter-section {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .add-weblink-table {
+    width: 90%;
+  }
+}
+
+/* 480px - Small Phones */
+@media (max-width: 480px) {
+  .add-weblink-schedule-container {
+    padding-top: calc(11vh + 0px);
+  }
+
+  .add-weblink-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .add-weblink-table th,
+  .add-weblink-table td {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .add-weblink-edit-btn {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+}
+
+/* 375px */
+@media (max-width: 375px) {
+  .add-weblink-schedule-container {
+    padding-top: calc(11vh + 0px);
+  }
+
+  .add-weblink-table {
+    width: 100%;
+  }
+
+  .add-weblink-table td,
+  .add-weblink-table th {
+    font-size: 12px;
+  }
+}
+
+/* 320px - Smallest Devices */
+@media (max-width: 320px) {
+  .add-weblink-schedule-container {
+    padding-top: 11vh;
+  }
+
+  .add-weblink-edit-btn {
+    padding: 6px 15px;
+    font-size: 11px;
+  }
+
+  .add-weblink-filter select {
+    width: 120px;
+    height: 28px;
+  }
+}

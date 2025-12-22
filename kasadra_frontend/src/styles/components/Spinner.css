@@ -1,0 +1,40 @@
+/* Spinner container centers everything */
+.spinner-container {
+  display: flex;
+  flex-direction: column; /* spinner + text */
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* full page center */
+  text-align: center;
+}
+
+/* Spinner circle animation */
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.spinner-circle {
+  width: 70px;   /* bigger width */
+  height: 70px;  /* bigger height */
+  border: 6px solid #ccc; /* thicker border */
+  border-top: 6px solid #007bff; /* thicker loading line */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+
+.spinner-text {
+  font-size: 1.4rem;  /* bigger text */
+  font-weight: 600;
+  color: #333;
+}
+
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,213 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* ======================
+   Navbar
+======================== */
+.navbar {
+  position: fixed;          /* ✅ fixed navbar */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 15vh;
+  padding: 20px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 9px #000;
+}
+
+.navbar-brand {
+  text-decoration: none;
+  cursor: default;
+  color: #09066D;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 100%;
+  letter-spacing: 4.8%;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.navbar-brand:hover {
+  color: #09066D;
+  text-decoration: none;
+  cursor: default;
+}
+
+/* ======================
+   Nav Links
+======================== */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.auth-home{
+  padding-left: 40px;
+}
+
+.auth-home,
+.auth-contact {
+  display: inline-block;
+  min-width: 120px;          /* ✅ prevents shift on bold */
+  text-align: center;
+  font-weight: 400;
+  text-decoration: none;
+  font-family: "Almarai", sans-serif;
+  font-size: 18px;
+  color: #1E293B;
+  line-height: 100%;
+}
+
+.auth-home:hover,
+.auth-contact:hover {
+  color: rgb(34, 3, 135);
+  font-weight: bold;          /* ✅ bold on hover without shifting */
+}
+
+/* ======================
+   Button
+======================== */
+.auth-btn {
+  background-color: #0EA5E9;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Roboto Condensed', sans-serif;
+  line-height: 100%;
+  transition: box-shadow 0.3s ease;
+}
+
+.auth-btn:hover {
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ======================
+   Hamburger Menu
+======================== */
+.hamburger {
+  display: none;          
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: rgb(34, 3, 135);
+  border-radius: 2px;
+}
+
+/* ======================
+   Responsive Styles
+======================== */
+
+/* Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 15px 25px;
+  }
+
+  .navbar-brand {
+    font-size: 22px;
+  }
+
+  .auth-home{
+    font-size: 16px;
+    padding-left: 100px; /* optional, tighter spacing */
+    padding-right: 0px;
+  }
+  .auth-contact {
+    font-size: 16px;
+    padding-left: 10px; /* optional, tighter spacing */
+    padding-right: 0px;
+  }
+
+  .auth-btn {
+    padding: 8px 14px;
+    font-size: 15px;
+  }
+}
+
+
+/* Mobile (<= 768px) */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;   /* ✅ show hamburger on mobile */
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center; /* make links full width */
+    background: #fff;
+    position: absolute;
+    top: 15.1vh;       /* below fixed navbar */
+    right: 0;
+    width: 200px;    /* width of dropdown */
+    padding: 10px 12px; /* padding inside dropdown */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Navbar links inside dropdown */
+  .nav-links a, 
+  .nav-links .auth-btn {
+    width: 50%;           /* full width */
+    text-align: left;      /* align text left */
+    margin: 5px 0;         /* vertical spacing between links */
+    padding: 8px 12px;     /* left/right padding inside dropdown */
+    box-sizing: border-box;
+  }
+  .auth-home,
+  .auth-contact {
+    margin: 8px 0;
+    font-size: 15px;
+  }
+  .auth-btn {
+    margin: 10px 0;
+    text-align: center;
+    font-size: 15px;
+    width: 100%;
+  }
+}
+
+/* Small Phones (<= 480px) */
+@media (max-width: 480px) {
+  .navbar-brand {
+    font-size: 20px;
+  }
+  .auth-home,
+  .auth-contact {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  .auth-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+/* ======================
+   Fix page content shift
+main, section, .content {
+  padding-top: 15vh; /* ✅ avoid content hiding under fixed navbar */
+}

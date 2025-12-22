@@ -1,0 +1,51 @@
+.body {
+  padding: 20px;
+}
+
+.navbar {
+  padding: 10px 20px;
+  /* width: 100%; */
+  height: 15vh;
+  background: FFFFFF;
+  box-shadow: #000 0px 0px 9px;
+  color: rgb(251, 251, 251);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth-btn {
+  background-color: #0EA5E9;
+  /* Bright cyan blue */
+  color: #f9fafc;
+  /* Black text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 0 10px;
+  text-decoration: none;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.auth-btn:hover {
+  background-color: #0EA5E9;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+
+@media (max-width: 768px) {
+
+  /* Navbar: stack items vertically */
+  .navbar {
+    align-items: flex-start;
+    gap: 10px;
+    width: 110%;
+  }
+}

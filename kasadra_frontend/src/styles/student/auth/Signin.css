@@ -1,0 +1,284 @@
+.login-container-signin {
+  width: 100%;
+  height: 600px;
+  /* margin-top: 50px; */
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.login-mainbox {
+
+  width: 100%;
+  max-width: 56.25rem;
+  /* 900px */
+  margin: 1rem auto 0;
+  display: flex;
+  border-radius: 0.625rem;
+  border: 1px solid #f5f1f1;
+  box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-top: 60px;
+}
+
+.login-right-image {
+  width: 400px;
+  display: flex;
+  padding: 40px;
+  flex-direction: column;
+  position: relative;
+  margin-right: -390px;
+}
+
+.login-image {
+  width: 350px;
+  height: 330px;
+  object-fit: cover;
+  margin-top: 50px;
+  margin-left: 450px;
+  position: relative;
+}
+
+.login-right {
+  width: 500px;
+  height: 500px;
+}
+
+.login-right-header {
+  margin-top: 50px;
+  margin-left: 140px;
+}
+
+.login-right-body-box {
+  background-color: white;
+  width: 370px;
+  height: auto;
+  margin-left: 50px;
+  margin-top: 30px;
+  border: 1px solid #d8d5d5;
+  border-radius: 10px;
+  position: relative;
+
+}
+
+.login-title {
+  padding-left: 125px;
+  font-size: 16px;
+  font-weight: bold;
+  padding-top: 20px;
+
+}
+
+.login-form {
+  margin-top: 20px;
+}
+
+.login-input-field {
+  border: none;
+  background-color: #fdfdfd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 12px;
+  outline: none;
+  width: 270px;
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+.login-btn-submit {
+  width: 90px;
+  height: 32px;
+  background-color: #08164E;
+  /* Green */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 150px;
+  margin-top: 5px;
+}
+
+.login-line {
+  width: 300px;
+  margin-left: 40px;
+}
+
+.login-right-body-login-text {
+  margin-left: 120px;
+  margin-top: 10px;
+  font-size: 0.75rem;
+}
+
+.login-footer-text {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+.login-signin-link {
+  color: #08164E
+}
+
+.login-forgot-password {
+  /* text-align: right; */
+  margin-top: -12px;
+  font-size: 12px;
+  margin-bottom: 5px;
+  margin-left: 250px;
+}
+
+.login-error-message {
+  color: red;
+  margin-top: 8px;
+  font-size: 11px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-left: 50px;
+}
+
+.login-success-message {
+  margin-left: 80px;
+  color: green;
+  margin-top: 10px;
+  font-size: 11px;
+  /* background-color: #e5ffe5; */
+  padding: 8px 8px;
+}
+
+@media(max-width:768px) {
+  .login-mainbox {
+    flex-direction: column-reverse;
+  }
+
+  .login-left {
+    padding: 20px 0;
+  }
+}
+
+/* Tablet devices: 768px - 1024px */
+@media (max-width: 1024px) {
+  .login-mainbox {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .login-right-image {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-image {
+    margin: 20px auto 0;
+    width: 80%;
+    height: auto;
+  }
+
+  .login-right {
+    width: 100%;
+    height: auto;
+  }
+
+  .login-right-header {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .login-right-body-box {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .login-input-field,
+  .login-btn-submit {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .login-forgot-password {
+    margin-left: auto;
+    margin-right: 20px;
+    text-align: right;
+  }
+
+  .login-error-message,
+  .login-success-message {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .signup-right-body-login-text {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+/* Mobile devices: below 768px */
+@media (max-width: 600px) {
+  .login-container-signin {
+    height: auto;
+  }
+
+  .login-mainbox {
+    width: 95%;
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .login-right-image {
+    display: none;
+    /* Hide image for smaller screens */
+  }
+
+  .login-image {
+    display: none;
+  }
+
+  .login-right-body-box {
+    width: 100%;
+    padding: 10px;
+    margin: 10px auto;
+  }
+
+  .login-input-field {
+    width: 85%;
+  }
+
+  .login-btn-submit {
+    margin: 10px auto;
+  }
+
+  .login-line {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .login-forgot-password {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .signup-right-body-login-text {
+    margin-left: 0;
+    font-size: 11px;
+  }
+
+  .login-footer-text {
+    font-size: 11px;
+  }
+
+  .login-title {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .login-error-message,
+  .login-success-message {
+    margin: 10px auto;
+  }
+}

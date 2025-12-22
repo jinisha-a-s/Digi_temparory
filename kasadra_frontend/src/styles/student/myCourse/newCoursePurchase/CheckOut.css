@@ -1,0 +1,310 @@
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+.checkout-container {
+    width: 80%;
+    margin: 60px auto;
+    color: #222;
+    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Header */
+.checkout-header {
+    margin-top: calc(15vh + 20px);   /* FIXED: always below navbar */
+    margin-bottom: 30px;
+    margin-left: 200px;
+}
+
+.checkout-header-1 {
+    display: flex;
+    gap: 10px;
+}
+
+.checkout-header-h2 {
+    margin-top: 6px;
+}
+
+.checkout-header-top {
+    display: flex;
+    gap: 7px;
+}
+
+.checkout-header h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #00094d;
+    margin-bottom: 6px;
+}
+
+.checkout-header p {
+    font-size: 14px;
+    color: #6c6c6c;
+    margin: 0;
+}
+
+/* Checkout Card */
+.checkout-card {
+    background: #fff;
+    width: 70%;
+    margin-left: 200px;
+    margin-top: 20px; /* FIXED */
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 10px;
+}
+
+/* Table */
+.checkout-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.checkout-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.checkout-table th,
+.checkout-table td {
+    padding: 0.75rem 0.875rem;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 15px;
+}
+
+.checkout-table tbody tr:hover,
+.checkout-table tbody tr:focus {
+    background: #f2f8ff;
+    cursor: pointer;
+}
+
+/* Remove button */
+.checkout-remove-btn {
+    background: transparent;
+    border: 1px solid #d0d5dd;
+    color: #00094d;
+    padding: 6px 18px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.checkout-remove-btn:hover {
+    background: #0664cf;
+    color: #fff;
+}
+
+/* Footer */
+.checkout-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.checkout-btn,
+.checkout-back-btn {
+    border: 1px solid #00094d;
+    background: #fff;
+    color: #00094d;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.checkout-btn:hover,
+.checkout-back-btn:hover {
+    background: #00094d;
+    color: #fff;
+}
+
+/* Empty Message */
+.checkout-empty {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    margin-top: 40px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    padding: 30px 0;
+}
+
+.checkout-success-msg {
+    margin-top: 30px;
+    text-align: center;
+    color: green;
+}
+
+/* =========================================================
+   RESPONSIVE MEDIA QUERIES (2560px → 320px)
+========================================================= */
+
+/* 2560px */
+@media (max-width: 2560px) {
+    .checkout-card { width: 60%; margin-left: 18%; }
+}
+
+/* 1920px */
+@media (max-width: 1920px) {
+    .checkout-card { width: 65%; margin-left: 15%; }
+}
+
+/* 1600px */
+@media (max-width: 1600px) {
+    .checkout-card { width: 70%; margin-left: 12%; }
+    .checkout-header { margin-left: 150px; }
+}
+
+/* 1440px */
+@media (max-width: 1440px) {
+    .checkout-card { width: 75%; margin-left: 10%; }
+    .checkout-header { margin-left: 120px; }
+}
+
+/* 1280px */
+@media (max-width: 1280px) {
+    .checkout-card { width: 80%; margin-left: 8%; }
+    .checkout-header { margin-left: 90px; }
+}
+
+/* 1024px — iPad Horizontal */
+@media (max-width: 1024px) {
+    .checkout-header {
+        margin-top: calc(15vh + 10px);  /* FIXED navbar overlap */
+        margin-left: 40px;
+    }
+    .checkout-card {
+        width: 85%;
+        margin-left: 40px;
+        margin-top: 10px;
+    }
+    .checkout-table th,
+    .checkout-table td {
+        font-size: 13px;
+    }
+}
+
+/* 768px — Tablet Vertical */
+@media (max-width: 768px) {
+    .checkout-container { width: 90%; }
+
+    .checkout-header {
+        margin-top: calc(15vh + 10px);
+        margin-left: 0;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .checkout-card {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .checkout-footer {
+        flex-direction: row;
+        gap: 15px;
+    }
+            .checkout-btn,
+    .checkout-back-btn {
+        padding: 7px 14px;   /* reduce height + width */
+        font-size: 13px;     /* smaller text */
+        border-radius: 4px;  /* optional: smaller corners */
+    }
+
+}
+
+/* 576px — Large Phones */
+@media (max-width: 576px) {
+    .checkout-header {
+    margin-bottom: 0;
+}
+
+    .checkout-header h2 { font-size: 20px; }
+    .checkout-header p { font-size: 12px; }
+
+    .checkout-table th,
+    .checkout-table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .checkout-remove-btn {
+        padding: 4px 12px;
+        font-size: 12px;
+    }
+        .checkout-btn,
+    .checkout-back-btn {
+        padding: 7px 14px;   /* reduce height + width */
+        font-size: 13px;     /* smaller text */
+        border-radius: 4px;  /* optional: smaller corners */
+    }
+
+
+}
+
+/* 480px — Small Phones */
+@media (max-width: 480px) {
+    .checkout-header {
+        margin-top: calc(15vh + 5px);
+    }
+    .checkout-header {
+    margin-bottom: 0;
+}
+
+    .checkout-table th,
+    .checkout-table td {
+        padding: 6px;
+        font-size: 11px;
+    }
+        .checkout-btn,
+    .checkout-back-btn {
+        padding: 5px 12px;   /* reduce height + width */
+        font-size: 11px;     /* smaller text */
+        border-radius: 4px;  /* optional: smaller corners */
+    }
+}
+
+/* 375px — iPhone Mini */
+@media (max-width: 375px) {
+    .checkout-header {
+    margin-bottom: 0;
+}
+    .checkout-header h2 { font-size: 18px; }
+    .checkout-header p { font-size: 11px; }
+    .checkout-remove-btn { font-size: 11px; }
+
+    .checkout-table th,
+    .checkout-table td {
+        font-size: 10px;
+    }
+        .checkout-btn,
+    .checkout-back-btn {
+        padding: 5px 12px;   /* reduce height + width */
+        font-size: 11px;     /* smaller text */
+        border-radius: 4px;  /* optional: smaller corners */
+    }
+}
+
+/* 320px — Smallest Devices */
+@media (max-width: 320px) {
+    .checkout-header h2 { font-size: 16px; }
+
+    .checkout-table th,
+    .checkout-table td {
+        font-size: 9px;
+        padding: 5px;
+    }
+
+    .checkout-btn,
+    .checkout-back-btn {
+        padding: 5px 12px;   /* reduce height + width */
+        font-size: 11px;     /* smaller text */
+        border-radius: 4px;  /* optional: smaller corners */
+    }
+}

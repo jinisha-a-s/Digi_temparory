@@ -1,0 +1,150 @@
+/* ======================
+   Container with navbar height
+======================== */
+.schedule-container-fluid {
+  margin-top: calc(17vh + 20px);   /* Navbar height + safe spacing */
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* ======================
+   Grid Layout
+======================== */
+.schedule-button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 110px 140px;
+  max-width: 980px;
+  margin: 0 auto 40px auto;
+  padding: 0 64px 33px;
+  box-sizing: border-box;
+}
+
+/* ======================
+   Button Box
+======================== */
+.schedule-btn-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  padding: 30px 25px;
+  gap: 10px;
+  border: 1px solid #000;
+  background-color: #f8fafc;
+  color: #000;
+  font-size: 24px;
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  line-height: 100%;
+  cursor: pointer;
+  text-decoration: none;         /* remove underline */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Remove underline if inside <a> */
+.schedule-btn-box a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Hover */
+.schedule-btn-box:hover {
+  background-color: #0ea5e9;
+  transform: translateY(-4px);
+  box-shadow: 5px 5px 10px gray;
+  border: none;
+  border-radius: 10px;
+}
+
+/* ======================
+   Responsive Breakpoints
+======================== */
+
+@media (max-width: 2000px) {
+    .schedule-container-fluid{
+        margin-top: calc(25vh + 20px);
+    }
+}
+
+/* ✅ 1500px - Large Laptop */
+@media (max-width: 1500px) {
+    .schedule-container-fluid{
+        margin-top: calc(20vh + 20px);
+    }
+
+  .schedule-button-grid {
+    max-width: 900px;
+    padding: 0 50px 33px;
+  }
+}
+
+/* ✅ 1200px - Medium Laptop */
+@media (max-width: 1200px) {
+
+        .schedule-container-fluid{
+        margin-top: calc(20vh + 20px);
+    }
+  .schedule-button-grid {
+    gap: 90px 100px;
+    padding: 0 40px 30px;
+  }
+}
+
+/* ✅ 1024px - Tablets Landscape */
+@media (max-width: 1024px) {
+  .schedule-button-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 80px;
+    padding: 0 30px 25px;
+  }
+
+  .schedule-btn-box {
+    height: 100px;
+    font-size: 20px;
+  }
+}
+
+/* ✅ 768px - Tablets Portrait / Small Tablets */
+@media (max-width: 768px) {
+        .schedule-container-fluid{
+        margin-top: calc(17vh + 20px);
+    }
+  .schedule-button-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 20px 15px;
+  }
+
+  .schedule-btn-box {
+    height: 90px;
+    font-size: 18px;
+    padding: 20px;
+  }
+}
+
+/* ✅ 576px - Large Phones */
+@media (max-width: 576px) {
+  .schedule-button-grid {
+    gap: 32px;
+    padding: 0 15px 10px;
+  }
+
+  .schedule-btn-box {
+    height: 85px;
+    font-size: 17px;
+  }
+}
+
+/* ✅ 480px - Small Phones */
+@media (max-width: 480px) {
+  .schedule-button-grid {
+    gap: 25px;
+    padding: 0 12px 8px;
+  }
+
+  .schedule-btn-box {
+    height: 80px;
+    font-size: 16px;
+    padding: 15px;
+  }
+}

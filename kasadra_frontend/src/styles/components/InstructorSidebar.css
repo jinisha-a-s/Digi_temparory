@@ -1,0 +1,46 @@
+.instructor-sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 1rem;
+  width: 200px;
+  height: 515px;
+  border-right: 1px solid #ddd;
+}
+ 
+/* Sidebar items */
+.instructor-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+ 
+/* Hover effect */
+.instructor-sidebar-item:hover {
+  background-color: #2196f3;
+  color: #fff;
+  font-weight: bold;
+}
+ 
+/* Active tab */
+.instructor-sidebar-item.active {
+  background-color: #2196f3;
+  color: #fff;
+  font-weight: bolder;
+}
+ 
+/* Back button section */
+.instructor-sidebar-back {
+  margin-top: auto;
+  padding-top: 20px;
+}
