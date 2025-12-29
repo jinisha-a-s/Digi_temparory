@@ -146,12 +146,10 @@ const AddBatchForm = () => {
   return (
     <div className="create-new-batch-page">
       <div className="create-new-batch">
-        <div className="create-new-batch-navbar">
-          <Instructornavbar />
-        </div>
+      
 
         <div className="create-new-batch-header">
-          <BackButton to="/instructor/assign-batch" />
+
           <p className="create-new-batch-title">Add New Batch</p>
         </div>
 
@@ -256,7 +254,7 @@ const AddBatchForm = () => {
               {/* Buttons */}
               <div className="create-new-batch-actions">
                 <button type="submit" className="create-new-batch-btn create-new-batch-save">
-                  Save
+                  Create
                 </button>
                 <button
                   type="button"

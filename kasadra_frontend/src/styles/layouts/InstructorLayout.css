@@ -1,0 +1,17 @@
+.instructor-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+/* Sidebar already has fixed width */
+.instructor-main {
+  flex: 1;
+  margin-left: 240px; /* SAME width as sidebar */
+  padding: 1.5rem;
+}
+
+/* When sidebar is collapsed */
+.instructor-sidebar.collapsed + .instructor-main {
+  margin-left: 80px;
+}

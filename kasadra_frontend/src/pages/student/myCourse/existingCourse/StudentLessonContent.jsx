@@ -252,6 +252,7 @@ export default function StudentLessonContent() {
           {/* Weblink */}
           {contentType === "weblink" && (
             <div className="student-lesson-content-item">
+              Click here to access the web link:  
               <a
                 href={lesson.weblink}
                 target="_blank"

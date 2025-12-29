@@ -1,548 +1,295 @@
 /* ========================================= */
-/* 📦 Assign Batch - Container */
+/* 🌍 Page Layout (MATCH UM) */
 /* ========================================= */
-.assign-batch-wrap {
-    padding: 2rem;
-    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #222;
-    margin-top: 10vh;
-    /* avoids overlap with navbar */
+.assign-batch-instructor-home {
+  padding: 2rem;
+  font-family: "Inter", sans-serif;
+  background-color: #f5f7fb;
+  min-height: 100vh;
+  color: #1f2937;
+  margin-top: 90px;
 }
 
-.assign-batch-page {
-    margin-top: 30px;
-    /* background-color: #004085; */
-    height: fit-content;
-    width: 980px;
-    margin-left: 250px;
-    overflow: hidden;
-    position: fixed;
-    top: 100px;
-    left: 10px;
-    width: 1000px;
-    /* height: 60px; */
-    /* IMPORTANT */
-    z-index: 1000;
-
-}
-
-
+/* ========================================= */
+/* 🏷️ Header Card (MATCH UM HEADER) */
+/* ========================================= */
 .assign-batch-all-header {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    align-items: center;
-
-}
-
-/* ========================================= */
-/* 🏷️ Header Row: Title + Actions */
-/* ========================================= */
-.assign-batch-header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-
+  background: #ffffff;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .assign-batch-header-left {
-    display: flex;
-    align-items: center;
-    gap: 30px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .assign-batch-title {
-    font-size: 20px;
-    font-weight: 580;
-    padding-top: 20px;
-    color: #666;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
 }
-
-/* .assign-batch-subtitle {
-    font-size: 1rem;
-    color: #d31212;
-    margin-top: 0.2rem;
-} */
-
-.assign-batch-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
 
 /* ========================================= */
-/* ⚙️ Controls: Course + Batch Selection */
+/* ⚙️ Controls (MATCH UM INPUT STYLE) */
 /* ========================================= */
 .assign-batch-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
 }
 
-.assign-batch-label {
-    font-size: 0.9rem;
-    color: #333;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+.assign-batch-control-item label {
+  font-size: 0.85rem;
+  color: #374151;
+  margin-bottom: 4px;
+  display: inline-block;
 }
 
 .assign-batch-select {
-    padding: 6px 10px;
-    border-radius: 6px;
-    border: 1px solid #dcdcdc;
-    background: #fff;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.assign-batch-select:hover {
-    border-color: #0056b3;
-    box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
-    transform: translateY(-2px);
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  font-size: 0.9rem;
+  cursor: pointer;
 }
 
 .assign-batch-select:focus {
-    outline: none;
-    border-color: #004085;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
-    transform: translateY(-2px) scale(1.02);
+  outline: none;
+  border-color: #2563eb;
+  background: #ffffff;
+}
+
+/* Search */
+.assign-batch-search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.assign-batch-search-input {
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  background: #f9fafb;
+  width: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.assign-batch-search-input.open {
+  width: 200px;
+  opacity: 1;
 }
 
 .assign-batch-search-btn {
-    padding: 8px 20px;
-    background: #f1f1f1;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.assign-batch-search-btn:hover {
-    background: #e2e2e2;
-    border-color: #999;
+/* ========================================= */
+/* 📦 Table Card (MATCH UM CARD) */
+/* ========================================= */
+.assign-batch-card {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 }
 
-/* Green button for ASSIGN */
+/* ========================================= */
+/* 📋 Table */
+/* ========================================= */
+.assign-batch-table-wrapper {
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.assign-batch-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.9rem;
+}
+
+/* ===== Table Header (MATCH UM) ===== */
+.assign-batch-table thead th {
+  position: sticky;
+  top: 0;
+  background: #f8fafc;
+  color: #1f2937;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 10;
+}
+
+/* ===== Table Body ===== */
+.assign-batch-table td {
+  padding: 0.9rem 1rem;
+  color: #374151;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.assign-batch-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* Selected Row */
+.assign-batch-table tr.selected-row {
+  background-color: #eef6ff;
+}
+
+/* Empty State */
+.assign-batch-table .empty-table-row td {
+  text-align: center;
+  padding: 2rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* Checkbox column */
+.assign-batch-table td:first-child {
+  width: 48px;
+  text-align: center;
+}
+
+/* ========================================= */
+/* 🎯 Row Action Buttons */
+/* ========================================= */
+.assign-btn,
+.move-btn {
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+/* Assign */
 .assign-btn {
-    width: 80px;
-    padding: 6px 14px;
-    border-radius: 6px;
-    border: none;
-    background-color: #28a745;
-    /* green */
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.2s ease;
+  background: #ecfdf5;
+  color: #047857;
+  border-color: #10b981;
 }
 
 .assign-btn:hover {
-    background-color: #1e7e34;
+  background: #10b981;
+  color: #ffffff;
 }
 
-/* Orange button for MOVE */
+/* Move */
 .move-btn {
-    width: 80px;
-    padding: 6px 14px;
-    border-radius: 6px;
-    border: none;
-    background-color: #ffb703;
-    /* orange */
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.2s ease;
+  background: #fff7ed;
+  color: #c2410c;
+  border-color: #fb923c;
 }
 
 .move-btn:hover {
-    background-color: #fb8500;
-}
-
-
-/* ========================================= */
-/* 🗂️ Card around Table */
-/* ========================================= */
-.assign-batch-card {
-    background: #fff;
-    border-radius: 1rem;
-    padding: 1rem;
-    box-shadow: 0 0.125rem 0.625rem rgba(25, 25, 25, 0.05);
-    overflow: hidden;
+  background: #fb923c;
+  color: #ffffff;
 }
 
 /* ========================================= */
-/* 📋 Table Styles */
-/* ========================================= */
-.assign-batch-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.assign-batch-table th,
-.assign-batch-table td {
-    padding: 0.75rem 0.875rem;
-    text-align: left;
-    border-bottom: 1px solid #f0f0f0;
-    vertical-align: middle;
-    font-size: 0.875rem;
-}
-
-.assign-batch-table thead th {
-    background: #0ea5e9;
-    font-weight: 600;
-    color: white;
-}
-
-.assign-batch-table tbody tr.assign-batch-row:hover,
-.assign-batch-table tbody tr.assign-batch-row:focus {
-    background: #f2f8ff;
-    cursor: pointer;
-    outline: none;
-}
-
-.assign-batch-empty-row td {
-    padding: 1.5rem;
-    text-align: center;
-    color: #666;
-}
-
-/* ========================================= */
-/* 🖱️ Action Buttons */
+/* 🚀 Footer Buttons */
 /* ========================================= */
 .assign-batch-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* padding-left: 450px; */
-    gap: 5rem;
-    margin-top: 1rem;
-    /* background-color: blueviolet; */
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
 }
 
-.assign-batch-btn {
-    border: none;
-    padding: 0.4rem 0.6rem;
-    border-radius: 0.5rem;
-    /* margin-right: 0.5rem; */
-    font-size: 0.8125rem;
-    cursor: pointer;
+.assign-batch-btn,
+.assign-batch-btn-move,
+.assign-batch-btn-create {
+  height: 40px;
+  padding: 0 1.2rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
 }
 
+/* Assign */
 .assign-batch-btn {
-    background: #28a745;
-    color: white;
-    font-size: medium;
-    font-weight: 600;
-    height: 40px;
-    width: 100px;
+  background: #10b981;
+  color: #ffffff;
 }
 
 .assign-batch-btn:hover {
-    background: #1e7e34;
-    transition: all 0.2s ease-in-out;
+  background: #059669;
 }
 
-.assign-batch-btn-create {
-    background: #0ea5e9;
-    color: white;
-    border-radius: 0.5rem;
-    font-size: medium;
-    font-weight: 600;
-    height: 40px;
-    width: 200px;
-    border: none;
-}
-
-.assign-batch-btn-create:hover {
-    background: #0664cf;
-    transition: all 0.2s ease-in-out;
-}
-
-/* Search box wrapper */
-.assign-batch-search-box {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-/* Search input (hidden by default) */
-.assign-batch-search-input {
-    width: 0px;
-    opacity: 0;
-    padding: 8px 12px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    outline: none;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Expanded input */
-.assign-batch-search-input.open {
-    width: 200px;
-    /* expand width */
-    opacity: 1;
-    margin-right: 10px;
-}
-
-/* Search button */
-.assign-batch-search-btn {
-    background-color: #ffffff;
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 18px;
-    cursor: pointer;
-    transition: 0.2s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.assign-batch-search-btn:hover {
-    background-color: #3867d6;
-}
-
-
-.assign-batch-table-wrapper {
-    max-height: 350px;
-    /* scroll area height */
-    overflow-y: auto;
-    overflow-x: hidden;
-    /* border: 1px solid #ddd; */
-    /* border-radius: 8px; */
-}
-
-/* Sticky header */
-.assign-batch-table thead th {
-    position: sticky;
-    top: 0;
-    /* background: #fff; */
-    z-index: 10;
-}
-
-/* Table width fixed */
-.assign-batch-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-/* ===== Scrollbar Styling ===== */
-
-.assign-batch-table-wrapper::-webkit-scrollbar {
-    width: 6px;
-    /* Scrollbar width */
-}
-
-.assign-batch-table-wrapper::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    /* Track color */
-
-}
-
-.assign-batch-table-wrapper::-webkit-scrollbar-thumb {
-    background: #c6c6c6;
-    /* Scroll thumb color */
-    border-radius: 10px;
-}
-
-.assign-batch-table-wrapper::-webkit-scrollbar-thumb:hover {
-    background: #909090;
-    /* Darker on hover */
-}
-
-
+/* Move */
 .assign-batch-btn-move {
-    background-color: #ffb703;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 6px;
-    border: none;
-    margin: 0 10px;
-    transition: 0.2s;
+  background: #fb923c;
+  color: #ffffff;
 }
 
 .assign-batch-btn-move:hover {
-    background-color: #fb8500;
+  background: #f97316;
 }
 
-
-/* ========================================= */
-/* 📱 Responsive Media Queries with calc() */
-/* ========================================= */
-
-/* Default / Large Screens */
-.assign-batch-wrap {
-    padding: 2rem;
-    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #222;
-    margin-top: calc(10vh + 0rem);
-    /* add navbar height */
+/* Create */
+.assign-batch-btn-create {
+  background: #2563eb;
+  color: #ffffff;
 }
 
-.assign-batch-istructor-home {
-
-    position: fixed;
-    top: 0;
-    /* IMPORTANT */
-    left: 0;
-    width: 100%;
-    height: 60px;
-    /* IMPORTANT */
-    background-color: #820e0e;
-    z-index: 1000;
-
-
+.assign-batch-btn-create:hover {
+  background: #1d4ed8;
 }
 
-/* Tablet Devices */
-@media (max-width: 992px) {
-    .assign-batch-wrap {
-        padding: 1.5rem;
-        margin-top: calc(10vh + 0rem);
-        /* top spacing adjusted */
-    }
-
-    .assign-batch-header-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    .assign-batch-header-left {
-        gap: 15px;
-    }
-
-    .assign-batch-title {
-        font-size: 20px;
-        padding-top: 10px;
-    }
-
-    .assign-batch-actions {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
-
-    .assign-batch-controls {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-
-    .assign-batch-buttons {
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-}
-
-/* Mobile Devices */
-@media (max-width: 576px) {
-    .assign-batch-wrap {
-        padding: 1rem;
-        margin-top: calc(10vh + 0rem);
-        /* top spacing adjusted */
-    }
-
-    .assign-batch-title {
-        font-size: 18px;
-    }
-
-    .assign-batch-header-left {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    .assign-batch-actions {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-
-    .assign-batch-controls {
-        flex-direction: column;
-        gap: 0.5rem;
-        width: 100%;
-    }
-
-
-
-    .assign-batch-select {
-        width: 100%;
-        font-size: 0.85rem;
-    }
-
-    .assign-batch-table th,
-    .assign-batch-table td {
-        padding: 0.5rem 0.5rem;
-        font-size: 0.75rem;
-    }
-
-    .assign-batch-buttons {
-        gap: 0.5rem;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-    }
-
-    .assign-batch-btn,
-    .assign-batch-btn-create {
-        width: 100%;
-        height: 38px;
-        font-size: 0.875rem;
-    }
-}
-
-
-
-/* -------- Empty state row -------- */
-.assign-batch-table .empty-table-row td.empty-table-cell {
-    text-align: center;
-    padding: 48px 16px;
-    color: #4a5568;
-    /* muted text */
-    font-size: 24px;
-    font-weight: bold;
-    background: transparent;
-}
-
-/* -------- Selected row highlight -------- */
-.assign-batch-table tr.selected-row {
-    background-color: #eef8ff;
-    /* light blue highlight */
-}
-
-/* Slight hover for rows */
-.assign-batch-table tbody tr:hover {
-    background-color: #f7fbff;
-}
-
-/* -------- Info-icon style (small tooltip via title attr) -------- */
-.info-icon {
-    margin-left: 6px;
-    font-size: 12px;
-    color: #5a5a5a;
-    cursor: help;
-}
-
-/* Optional: nicer button tooltips (native titles will still show) */
+/* Disabled */
 .assign-batch-btn[disabled],
 .assign-batch-btn-move[disabled] {
-    pointer-events: none;
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
-/* Ensure checkbox column is not too wide */
-.assign-batch-table td:first-child {
-    width: 48px;
-    text-align: center;
+/* ========================================= */
+/* ℹ️ Info Icon */
+/* ========================================= */
+.info-icon {
+  margin-left: 6px;
+  font-size: 12px;
+  color: #6b7280;
+  cursor: help;
+}
+
+/* ========================================= */
+/* 📱 Responsive */
+/* ========================================= */
+@media (max-width: 768px) {
+  .assign-batch-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .assign-batch-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }

@@ -79,21 +79,18 @@ const InstructorSignin = () => {
     dispatch(loginInstructor(formData))
       .unwrap()
       .then((res) => {
-        setSuccessMessage('Login successful! Redirecting...');
-        console.log('Instructor Login Data:', res);
+        setSuccessMessage("Login successful! Redirecting...");
         setLocalError("");
-        setTimeout(() => {
-          navigate("/instructor/home") // adjust route if your login path is different
-        }, 1000);
 
+        setTimeout(() => {
+          navigate("/instructor", { replace: true });
+        }, 800);
       })
       .catch((err) => {
-        // `err` is now always a string thanks to slice
         setLocalError(err);
         setSuccessMessage("");
-        console.error("Login error:", err);
-
       });
+
   };
 
   return (

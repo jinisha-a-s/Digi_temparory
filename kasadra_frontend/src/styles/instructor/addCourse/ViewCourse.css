@@ -3,13 +3,9 @@
 =============================== */
 .view-course-page {
   width: 100%;
-  /* background: #f8f9fb; */
+  background: #f5f7fb;
   min-height: 100vh;
   font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.view-course-page-sidebar{
-  display: flex;
-  margin-left: 200px;
 }
 
 .view-course-navbar {
@@ -24,39 +20,48 @@
    Page Container
 =============================== */
 .view-course-container {
-  padding: 120px 40px 40px;
+  padding: 50px 40px 40px;
   width: 100%;
-  margin-top: 70px;
+  margin-top: 10px;
 }
 
 /* ============================
-   Header
+   Header (MATCHES UM HEADER)
 =============================== */
 .view-course-header {
+  margin-top: 40px;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: #ffffff;
+  border-radius: 0.75rem;
   display: flex;
-  font-size: 23px;
-  gap: 1rem;
-  margin-bottom: 20px;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
+
+.view-course-header .subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
 /* ============================
    Wrapper (Card)
 =============================== */
 .view-course-wrapper {
-    /* margin-top: 70px; */
-  background: white;
-  padding: 0;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(25, 25, 25, 0.08);
+  background: #ffffff;
+  border-radius: 0.75rem;
   overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 }
 
 /* ============================
    Error Message
 =============================== */
 .view-course-error {
-  color: red;
+  color: #dc2626;
   font-size: 14px;
-  margin-bottom: 10px;
+  padding: 1rem;
 }
 
 /* ============================
@@ -64,67 +69,81 @@
 =============================== */
 .view-course-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   font-size: 14px;
 }
 
-/* Header row */
+/* ============================
+   Table Header (MATCHES UM)
+=============================== */
 .view-course-thead th {
-  background: #0aa5ff;   
-  color: white;
-  padding: 14px 16px;
-  text-align: left;
+  background: #f8fafc;
+  color: #1f2937;
+  font-size: 0.8rem;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
 }
 
-/* Table rows */
+/* ============================
+   Table Rows
+=============================== */
 .view-course-row td {
-  padding: 14px 16px;
-  border-bottom: 1px solid #ececec;
-  color: #333;
-  font-size: 14px;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #374151;
+  font-size: 0.9rem;
 }
 
 .view-course-row:hover {
-  background: #f2f8ff;
+  background: #f8fafc;
 }
 
-/* Actions column */
+/* ============================
+   Actions Column
+=============================== */
 .view-course-actions {
   display: flex;
   gap: 10px;
-  padding: 14px 16px;
 }
 
-/* Action Buttons */
+/* ============================
+   Action Buttons (MATCHES UM)
+=============================== */
 .view-course-btn {
-  border: 1px solid #d1d5db;
-  background: white;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 13px;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid #2563eb;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 0.8rem;
+  font-weight: 500;
   cursor: pointer;
-  color: #0b6aa0;
-  transition: 0.2s;
+  transition: all 0.2s ease;
 }
 
 .view-course-btn:hover {
-  background: #0aa5ff;
-  color: white;
+  background: #2563eb;
+  color: #ffffff;
 }
 
-/* Empty State */
+/* ============================
+   Empty State
+=============================== */
 .view-course-empty {
-  padding: 20px;
+  padding: 2rem;
   text-align: center;
-  color: #555;
+  color: #6b7280;
+  font-size: 0.9rem;
 }
 
 /* ============================
    Responsive
 =============================== */
-
-/* Tablets */
 @media (max-width: 768px) {
   .view-course-container {
     padding: 110px 20px 20px;
@@ -141,14 +160,13 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 576px) {
   .view-course-container {
     padding: 110px 15px 15px;
   }
 
   .view-course-thead {
-    display: none; /* Hide header on small screens */
+    display: none;
   }
 
   .view-course-row {

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchInstructorCourses } from "../../../features/instructor/addCourse/AddCourseAuthSlice";
 import { useNavigate, useLocation } from "react-router-dom";
 import Spinner from "../../../components/Spinner.jsx";
-import BackButton from "../../../components/BackButton.jsx";
+// import BackButton from "../../../components/BackButton.jsx";
 import '../../../styles/instructor/addCourse/ViewCourse.css'
 import InstructorhomePage from "../InstructorhomePage.jsx";
 
@@ -33,7 +33,7 @@ const ViewCourse = () => {
                 <div className="view-course-container">
                     <div className="view-course-header">
                         {/* ✅ Custom back button that navigates to instructor home */}
-                        <BackButton to="/instructor/home" />
+                        {/* <BackButton to="/instructor/home" /> */}
                         <p className="subtitle">Courses</p>
                     </div>
                     <div className="view-course-body">
@@ -68,24 +68,31 @@ const ViewCourse = () => {
                                                 <td className="view-course-actions">
                                                     <button
                                                         className="view-course-btn"
-                                                        onClick={() => navigate(`/courses/${course.id}/add-content`)}
+                                                        onClick={() =>
+                                                            navigate(`/instructor/courses/${course.id}/add-content`)
+                                                        }
                                                     >
                                                         View & Edit Lessons
                                                     </button>
 
                                                     <button
                                                         className="view-course-btn"
-                                                        onClick={() => navigate(`/instructor/course/${course.id}/schedule`)}
+                                                        onClick={() =>
+                                                            navigate(`/instructor/course/${course.id}/schedule`)
+                                                        }
                                                     >
                                                         Schedule Class
                                                     </button>
 
                                                     <button
                                                         className="view-course-btn"
-                                                        onClick={() => navigate(`/instructor/course/${course.id}/view`)}
+                                                        onClick={() =>
+                                                            navigate(`/instructor/course/${course.id}/view`)
+                                                        }
                                                     >
                                                         View
                                                     </button>
+
                                                 </td>
                                             </tr>
                                         ))

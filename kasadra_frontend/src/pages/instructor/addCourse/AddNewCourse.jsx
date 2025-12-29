@@ -126,7 +126,7 @@ const AddNewCourse = () => {
       <div className="add-new-course-container">
         <Instructornavbar />
         <div className="add-new-course-header-close">
-          <BackButton className="add-new-course-close-button" />
+          {/* <BackButton className="add-new-course-close-button" /> */}
         </div>
 
         <h2 className="add-new-course-title">Add Your Course Details</h2>

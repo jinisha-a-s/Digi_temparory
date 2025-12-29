@@ -38,7 +38,7 @@ export default function StudentSidebar({ collapsed, setCollapsed }) {
 
   return (
     <aside className={`student-sidebar-container ${collapsed ? "student-sidebar-collapsed" : ""}`}>
-      
+
       {/* HEADER */}
       <div className="student-sidebar-header">
         <button
@@ -68,7 +68,7 @@ export default function StudentSidebar({ collapsed, setCollapsed }) {
           {!collapsed &&
             lessons.map((lesson) => (
               <div key={lesson.id} className="student-sidebar-lesson">
-                
+
                 {/* Lesson title */}
                 <div
                   className={`student-sidebar-lesson-title ${activeLessonId === lesson.id ? 'student-sidebar-lesson-title-active' : ''}`}

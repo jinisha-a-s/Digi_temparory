@@ -47,6 +47,7 @@ import ViewCourse from "../pages/instructor/addCourse/ViewCourse";
 import ZoomLinkPage from "../pages/student/myCourse/existingCourse/ZoomLinkPage";
 import StudentCourseLayout from "../layouts/StudentCourseLayout";
 import StudentLessonContent from "../pages/student/myCourse/existingCourse/StudentLessonContent";
+import InstructorLayout from "../layouts/InstructorLayout";
 
 const AppRoutes = () => {
   return (
@@ -105,127 +106,116 @@ const AppRoutes = () => {
       {/* Instructor Protected Routes */}
       {/* --------------------------------- */}
       <Route element={<InstructorProtectedRoute />}>
-        <Route path="/instructor/home" element={<InstructorhomePage />} />
 
-        {/* User Management */}
-        {/* ------------------------ */}
-        <Route
-          path="/instructor/user-management"
-          element={<UserManagement />}
-        />
-        <Route
-          path="/instructor/user-management/:studentId"
-          element={<StudentDetails />}
-        />
+        <Route path="/instructor" element={<InstructorLayout />}>
 
-        {/* Add Course */}
-        {/* ------------------------ */}
-        <Route path="/instructor/add-course" element={<AddCourse />} />
-        <Route path="/add-new-course" element={<AddNewCourse />} />
-        <Route path="/courses/:courseId/add-content" element={<AddContent />} />
-        <Route
-          path="/instructor/course/:courseId/schedule"
-          element={<AddScheduleClass />}
-        />
-        <Route path="/instructor/course/:courseId/view" element={<View />} />
-        <Route
-          path="/instructor/lesson-view/:courseId/:lessonId"
-          element={<LessonView />}
-        />
-        <Route
-          path="/instructor/:courseId/:lessonId/lesson-content"
-          element={<LessonContent />}
-        />
-        <Route
-          path="/instructor/:courseId/:lessonId/addpdf"
-          element={<AddPDF />}
-        />
-        <Route
-          path="/instructor/:courseId/:lessonId/addweblink"
-          element={<AddWeblink />}
-        />
-        <Route
-          path="/instructor/:courseId/:lessonId/notepad"
-          element={<NotePad />}
-        />
+          <Route index element={<Navigate to="user-management" replace />} />
 
-        <Route
-          path="/instructor/lesson-view/:lessonId"
-          element={<LessonView />}
-        />
-        <Route
-          path="/instructor/:courseId/:lessonId/lesson-content"
-          element={<LessonContent />}
-        />
-        <Route
-          path="/instructor/:courseId/:lessonId/addpdf"
-          element={<AddPDF />}
-        />
-        <Route
-          path="/instructor/:courseId/:lessonId/addweblink"
-          element={<AddWeblink />}
-        />
+          {/* USER MANAGEMENT */}
+          <Route path="user-management" element={<UserManagement />} />
+          <Route
+            path="user-management/:studentId"
+            element={<StudentDetails />}
+          />
 
-        <Route
-          path="/instructor/add-lesson/:courseId"
-          element={<AddLesson />}
-        />
-        <Route
-          path="/instructor/add-concept/:courseId"
-          element={<AddConcept />}
-        />
-        <Route
-          path="/instructor/:courseId/:lessonId/addlab"
-          element={<AddLab />}
-        />
-        <Route
-          path="/instructor/:courseId/:lessonId/addquiz"
-          element={<AddQuiz />}
-        />
+          {/* ADD COURSE */}
+         
+          <Route path="add-new-course" element={<AddNewCourse />} />
+           <Route path="add-course" element={<AddCourse />} />
+          <Route path="courses/:courseId/add-content" element={<AddContent />} />
 
-        {/* SCHEDULE CLASS */}
-        <Route
-          path="/instructor/schedule-class"
-          element={<EditScheduleClass />}
-        />
-        <Route
-          path="/instructor/schedule-class/:courseId"
-          element={<ScheduleEditor />}
-        />
+          <Route
+            path="course/:courseId/schedule"
+            element={<AddScheduleClass />}
+          />
+          <Route
+            path="course/:courseId/view"
+            element={<View />}
+          />
 
-        {/* View Course  */}
+          {/* LESSON FLOW */}
+          <Route
+            path="lesson-view/:courseId/:lessonId"
+            element={<LessonView />}
+          />
+          <Route
+            path=":courseId/:lessonId/lesson-content"
+            element={<LessonContent />}
+          />
+          <Route
+            path=":courseId/:lessonId/addpdf"
+            element={<AddPDF />}
+          />
+          <Route
+            path=":courseId/:lessonId/addweblink"
+            element={<AddWeblink />}
+          />
+          <Route
+            path=":courseId/:lessonId/notepad"
+            element={<NotePad />}
+          />
+          <Route
+            path=":courseId/:lessonId/addlab"
+            element={<AddLab />}
+          />
+          <Route
+            path=":courseId/:lessonId/addquiz"
+            element={<AddQuiz />}
+          />
 
-        <Route path="/instructor/view-course" element={<ViewCourse />} />
+          <Route
+            path="add-lesson/:courseId"
+            element={<AddLesson />}
+          />
+          <Route
+            path="add-concept/:courseId"
+            element={<AddConcept />}
+          />
 
-        {/* ASSIGN BATCH */}
+          {/* SCHEDULE CLASS */}
+          <Route
+            path="schedule-class"
+            element={<EditScheduleClass />}
+          />
+          <Route
+            path="schedule-class/:courseId"
+            element={<ScheduleEditor />}
+          />
 
-        <Route path="/instructor/assign-batch" element={<AssignBatch />} />
-        <Route
-          path="/instructor/assign-batch/create-new-batch"
-          element={<CreateNewBatch />}
-        />
-        <Route
-          path="/instructor/assign-batch/select"
-          element={<SelectBatch />}
-        />
+          {/* VIEW COURSE */}
+          <Route path="view-course" element={<ViewCourse />} />
 
-        {/* LIVE CLASS UPDATE */}
-        <Route
-          path="/instructor/live-student-activity"
-          element={<LiveStudentActivity />}
-        />
+          {/* ASSIGN BATCH */}
+          <Route path="assign-batch" element={<AssignBatch />} />
+          <Route
+            path="assign-batch/create-new-batch"
+            element={<CreateNewBatch />}
+          />
+          <Route
+            path="assign-batch/select"
+            element={<SelectBatch />}
+          />
 
-        {/* ADD MEETING LINK */}
-        <Route path="/instructor/meeting-link" element={<MeetingLink />} />
-        <Route
-          path="/instructor/edit-meeting-link/:id"
-          element={<EditMeetingLink />}
-        />
-        <Route
-          path="/instructor/add-meeting-link"
-          element={<AddMeetingLink />}
-        />
+          {/* LIVE CLASS UPDATE */}
+          <Route
+            path="live-student-activity"
+            element={<LiveStudentActivity />}
+          />
+
+          {/* MEETING LINK */}
+          <Route path="meeting-link" element={<MeetingLink />} />
+          <Route
+            path="edit-meeting-link/:id"
+            element={<EditMeetingLink />}
+          />
+          <Route
+            path="add-meeting-link"
+            element={<AddMeetingLink />}
+          />
+
+        </Route>
       </Route>
+
 
       {/* Catch all unknown routes */}
       <Route path="*" element={<Navigate to="/" replace />} />

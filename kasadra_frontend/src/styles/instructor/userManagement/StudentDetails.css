@@ -1,198 +1,76 @@
-/* ========================================= */
-/* 📦 Student Details - Container */
-/* ========================================= */
-.student-details-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10vh;
-    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+/* Page Wrapper */
+.student-details-wrap {
+  padding: 2rem;
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  background-color: white;
+  height: 100%;
 }
 
-.student-details-body {
-    margin-top: 5vh;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* ========================================= */
-/* 🔙 Close Button */
-/* ========================================= */
-.student-details-close-button {
-    margin-top: 20px;
-    margin-left: 0;
-}
-
-/* ========================================= */
-/* 🏷️ Header Section */
-/* ========================================= */
+/* Header */
 .student-details-header {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    width: fit-content;
-    height: fit-content;
-}
-
-.student-details-main-header {
-    display: flex;
-    width: 700px;
-    gap: 10px;
-    margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  
 }
 
 .student-details-title {
-    margin-top: 4.5vh;
-    margin-bottom: 1rem;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 650;
-      color: #666;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #555;
 }
 
-/* ========================================= */
-/* 🗂️ Card */
-/* ========================================= */
+/* Card */
 .student-details-card {
-    width: 22rem;
-    /* ~352px */
-    padding: 2rem 1.875rem 1.25rem 2.5rem;
-    border-radius: 0.75rem;
-    background-color: #fff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    height: fit-content;
+  max-width: 420px;
+  background: #fff;
+  padding: 1.75rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
-/* ========================================= */
-/* 📋 Rows */
-/* ========================================= */
+/* Rows */
 .student-details-row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 1.25rem;
+  display: flex;
+  margin-bottom: 1rem;
 }
 
 .student-details-label {
-    width: 7.5rem;
-    /* ~120px */
-    font-weight: 600;
-    color: #555;
+  width: 140px;
+  font-weight: 600;
+  color: #555;
 }
 
 .student-details-value {
-    flex: 1;
-    color: #333;
+  color: #333;
+  flex: 1;
 }
 
-/* ========================================= */
-/* ⚠️ Error State */
-/* ========================================= */
+/* Error */
 .student-details-error-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
 }
 
 .student-details-error-text {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #b71c1c;
-    background-color: #fdecea;
-    padding: 16px 24px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #b71c1c;
+  background: #fdecea;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+  .student-details-card {
+    width: 100%;
+  }
 
-/* ========================================= */
-/* 📱 Responsive Design */
-/* ========================================= */
-
-/* Smartphones (Portrait & Small < 480px) */
-@media (max-width: 480px) {
-    .student-details-main-header {
-        width: 100%;
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-    }
-
-    .student-details-card {
-        width: 90%;
-        padding: 1.5rem;
-    }
-
-    .student-details-title {
-        font-size: 1.25rem;
-    }
-}
-
-/* Smartphones (Landscape & Phablets: 481px–767px) */
-@media (min-width: 481px) and (max-width: 767px) {
-    .student-details-main-header {
-        width: 90%;
-        gap: 2rem;
-    }
-
-    .student-details-card {
-        width: 85%;
-    }
-
-    .student-details-title {
-        font-size: 1.3rem;
-    }
-}
-
-/* Tablets (768px–1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .student-details-main-header {
-        width: 80%;
-        gap: 3rem;
-    }
-
-    .student-details-card {
-        width: 70%;
-        gap: 12rem;
-    }
-
-    .student-details-title {
-        font-size: 1.4rem;
-    }
-}
-
-/* Laptops (1024px–1279px) */
-@media (min-width: 1024px) and (max-width: 1279px) {
-    .student-details-main-header {
-        width: 80%;
-        gap: 4rem;
-    }
-
-    .student-details-card {
-        width: 60%;
-    }
-}
-
-/* Desktops (1280px–1535px) */
-@media (min-width: 1280px) and (max-width: 1535px) {
-    .student-details-main-header {
-        width: 70%;
-        gap: 16rem;
-    }
-
-
-}
-
-/* Large Screens (1536px and above) */
-@media (min-width: 1536px) {
-    .student-details-main-header {
-        width: 60%;
-        gap: 6rem;
-    }
-
-    .student-details-card {
-        width: 40%;
-    }
+  .student-details-label {
+    width: 110px;
+  }
 }
