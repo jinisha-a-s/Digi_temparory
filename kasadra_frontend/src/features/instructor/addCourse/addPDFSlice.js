@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { uploadPDFAPI } from "../../../api/instructor/addCourse/addPDFApi";
-
+ 
 // ------------------------ THUNK ------------------------
 export const uploadPDF = createAsyncThunk(
   "pdf/uploadPDF",
@@ -15,7 +15,7 @@ export const uploadPDF = createAsyncThunk(
     }
   }
 );
-
+ 
 const initialState = {
   loading: false,
   success: false,
@@ -23,7 +23,7 @@ const initialState = {
   successMessage: "",
   errorMessage: "",
 };
-
+ 
 // ------------------------ SLICE ------------------------
 const addPDFSlice = createSlice({
   name: "pdf",
@@ -37,7 +37,7 @@ const addPDFSlice = createSlice({
       state.errorMessage = "";
     },
   },
-
+ 
   extraReducers: (builder) => {
     builder
       .addCase(uploadPDF.pending, (state) => {
@@ -59,6 +59,6 @@ const addPDFSlice = createSlice({
       });
   },
 });
-
+ 
 export const { resetPDFState } = addPDFSlice.actions;
 export default addPDFSlice.reducer;

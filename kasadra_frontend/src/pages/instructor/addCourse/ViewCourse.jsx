@@ -1,52 +1,54 @@
-
 import React, { useEffect } from "react";
 import Instructornavbar from '../../../components/Instructornavbar'
 import { useDispatch, useSelector } from "react-redux";
 import { fetchInstructorCourses } from "../../../features/instructor/addCourse/AddCourseAuthSlice";
 import { useNavigate, useLocation } from "react-router-dom";
 import Spinner from "../../../components/Spinner.jsx";
-// import BackButton from "../../../components/BackButton.jsx";
 import '../../../styles/instructor/addCourse/ViewCourse.css'
-import InstructorhomePage from "../InstructorhomePage.jsx";
+import Breadcrumb from "../../../components/Breadcrumb.jsx";
 
 const ViewCourse = () => {
+
+    // const items = [
+    //     { label: "Courses", path: "" }, // simple generic breadcrumb
+    // ];
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
 
-    // 🔹 Get courses, loading and error from Redux
     const { courses, loading, error } = useSelector((state) => state.course);
 
-    // 🔹 Fetch instructor courses when component mounts or page reloads
     useEffect(() => {
         dispatch(fetchInstructorCourses());
     }, [dispatch, location.key]);
 
     return (
         <div className="view-course-page-sidebar">
-            <InstructorhomePage />
+
             <div className="view-course-page">
                 <div className="view-course-navbar">
-                    <Instructornavbar />
+                    {/* You can add instructor navbar here */}
                 </div>
+
                 <div className="view-course-container">
+
+                    {/* 🔹 Breadcrumb placed above the subtitle */}
+                    {/* <Breadcrumb items={items} /> */}
+
                     <div className="view-course-header">
-                        {/* ✅ Custom back button that navigates to instructor home */}
-                        {/* <BackButton to="/instructor/home" /> */}
                         <p className="subtitle">Courses</p>
                     </div>
+
                     <div className="view-course-body">
                         <div className="view-course-wrapper">
 
-                            {/* 🔹 Error Message */}
                             {error && (
                                 <p className="view-course-error">
                                     {error.detail || "Something went wrong"}
                                 </p>
                             )}
 
-                            {/* 🔹 Courses Table */}
                             <table className="view-course-table" role="table" aria-label="Courses Table">
                                 <thead className="view-course-thead">
                                     <tr>
@@ -92,7 +94,6 @@ const ViewCourse = () => {
                                                     >
                                                         View
                                                     </button>
-
                                                 </td>
                                             </tr>
                                         ))
@@ -109,8 +110,10 @@ const ViewCourse = () => {
                                     )}
                                 </tbody>
                             </table>
+
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

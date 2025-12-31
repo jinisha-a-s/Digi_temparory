@@ -1,0 +1,76 @@
+/* ================================================= */
+/* 🌟 Breadcrumb – Fixed, Professional Dashboard Style */
+/* ================================================= */
+
+.breadcrumb-container {
+  position: fixed;
+  top: 100px;                 /* below top navbar */
+  left: 240px;                /* after sidebar */
+  right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  background-color: #fafafa;  /* important: hide content behind */
+  /* border-bottom: 1px solid #e5e7eb; */
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 14px;
+  z-index: 1000;              /* must be higher than page content */
+  overflow: hidden;
+}
+
+/* ================================================= */
+/* Breadcrumb Item Wrapper */
+/* ================================================= */
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* ================================================= */
+/* Breadcrumb Link (Previous Pages) */
+/* ================================================= */
+
+.breadcrumb-link {
+  color: #2563eb;            /* professional blue */
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* ================================================= */
+/* Breadcrumb Separator */
+/* ================================================= */
+
+.breadcrumb-separator {
+  margin: 0 10px;
+  color: #9ca3af;
+}
+
+/* ================================================= */
+/* Current Page */
+/* ================================================= */
+
+.breadcrumb-current {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* ================================================= */
+/* Mobile Safety */
+/* ================================================= */
+
+@media (max-width: 768px) {
+  .breadcrumb-container {
+    left: 0;
+    padding: 0 16px;
+  }
+}

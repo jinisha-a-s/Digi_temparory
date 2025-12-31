@@ -1,186 +1,157 @@
+/* ================================================= */
+/* 🌍 Page Layout – Udemy Style */
+/* ================================================= */
 .edit-meeting-container {
-  max-width: 500px;
-  margin: calc(15vh + 50px) auto 50px auto; /* below navbar */
-  padding: 25px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  min-height: 100vh;
+  background-color: #f7f9fa;
   font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top: 100px;
+  padding-left: 250px;
 }
 
-/* Back button + heading in one horizontal line */
-.edit-meeting-backhead-button {
-  display: flex;
-  align-items: center;       /* vertically center */
-  justify-content: center; /* align items from left */
-  gap: 0px;                 /* space between button and heading */
-  margin-bottom: 0px;
+/* ================================================= */
+/* 🧭 Title */
+/* ================================================= */
+.edit-meeting-title {
+  max-width: 960px;
+  margin: 0 auto 24px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1c1d1f;
 }
 
-.edit-meeting-backhead-title {
-  font-weight: bold;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 20px;
-  padding-left: 125px;
+/* ================================================= */
+/* 📄 Form Wrapper */
+/* ================================================= */
+.edit-meeting-form {
+  max-width: 960px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 32px 40px;
+  border: 1px solid #e4e7eb;
+  border-radius: 4px;
 }
 
-.edit-meeting-backhead button:hover {
-  background-color: #0056b3;
+/* ================================================= */
+/* 🧩 Form Group */
+/* ================================================= */
+.edit-meeting-group {
+  margin-bottom: 24px;
 }
 
-.edit-meeting-backhead h1 {
-  font-size: 1.5rem;
+.edit-meeting-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
   font-weight: 600;
-  color: #222;
-  margin: 0;
+  color: #1c1d1f;
 }
 
-/* ======================
-   Form Styles
-======================== */
-.edit-meeting-form .form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-}
-
-.edit-meeting-form label {
-  margin-bottom: 5px;
-  font-weight: 500;
-}
-
-.edit-meeting-form input {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.btn-submit {
+/* ================================================= */
+/* ✏️ Inputs */
+/* ================================================= */
+.edit-meeting-group input {
   width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  background-color: #0ea5e9;
-  color: white;
-  border: none;
-  border-radius: 5px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #1c1d1f;
+  border: 1px solid #d1d7dc;
+  border-radius: 2px;
+  background-color: #ffffff;
+}
+
+.edit-meeting-group input:read-only {
+  background-color: #f7f9fa;
+  cursor: not-allowed;
+}
+
+.edit-meeting-group input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* ================================================= */
+/* ❗ Messages */
+/* ================================================= */
+.edit-meeting-error {
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #b32d0f;
+}
+
+.edit-meeting-success {
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #047857;
+}
+
+/* ================================================= */
+/* 🎛️ Buttons */
+/* ================================================= */
+.edit-meeting-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.edit-meeting-btn {
+  height: 44px;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 2px;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-.btn-submit:hover {
-  background-color: #0056b3;
+.edit-meeting-save-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
 }
 
-.error {
-  color: red;
-  text-align: center;
-  margin-bottom: 10px;
+.edit-meeting-save-btn:hover {
+  background-color: #1d4ed8;
 }
 
+.edit-meeting-cancel-btn {
+  background-color: #ffffff;
+  color: #1c1d1f;
+  border: 1px solid #1c1d1f;
+}
 
-/* ======================
-   🌐 Responsive Design
-======================== */
+.edit-meeting-cancel-btn:hover {
+  background-color: #f7f9fa;
+}
 
-/* For screens smaller than 768px (Mobile) */
-@media (max-width: 768px) {
-  .edit-meeting-container {
-    max-width: 90%;
-    margin: calc(15vh + 20px) auto 30px auto;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+.edit-meeting-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ================================================= */
+/* 📱 Responsive */
+/* ================================================= */
+@media (max-width: 992px) {
+  .edit-meeting-form {
+    padding: 24px;
   }
 
-  .edit-meeting-backhead-button {
+  .edit-meeting-buttons {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .edit-meeting-backhead-title {
-    padding-left: 0;
-    padding-bottom: 10px;
-    font-size: 1.3rem;
-    text-align: center;
-  }
-
-  .edit-meeting-form input {
-    font-size: 15px;
-    padding: 9px;
-  }
-
-  .btn-submit {
-    font-size: 15px;
-    padding: 10px;
   }
 }
 
-/* For tablets (768px to 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 576px) {
   .edit-meeting-container {
-    max-width: 80%;
-    padding: 25px 30px;
+    padding-top: 100px;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 100%;
   }
 
-  .edit-meeting-backhead-button {
-    justify-content: flex-start;
-    gap: 10px;
-  }
-
-  .edit-meeting-backhead-title {
-    padding-left: 60px;
-    font-size: 1.4rem;
-  }
-
-  .btn-submit {
-    font-size: 16px;
-  }
-}
-
-/* For large desktops (above 1440px) */
-@media (min-width: 1440px) {
-  .edit-meeting-container {
-    max-width: 600px;
-    padding: 30px 40px;
-  }
-
-  .edit-meeting-backhead-title {
-    font-size: 1.6rem;
-  }
-
-  .edit-meeting-form input {
-    font-size: 17px;
-    padding: 12px;
-  }
-
-  .btn-submit {
-    font-size: 17px;
-    padding: 14px;
-  }
-}
-
-/* For ultra-wide screens (above 2000px) */
-@media (min-width: 2000px) {
-  .edit-meeting-container {
-    max-width: 700px;
-    margin-top: calc(15vh + 80px);
-    padding: 40px 50px;
-  }
-
-  .edit-meeting-backhead-title {
-    font-size: 1.8rem;
-    padding-left: 100px;
-  }
-
-  .edit-meeting-form input {
-    font-size: 18px;
-    padding: 14px;
-  }
-
-  .btn-submit {
-    font-size: 18px;
-    padding: 15px;
+  .edit-meeting-title {
+    font-size: 20px;
   }
 }

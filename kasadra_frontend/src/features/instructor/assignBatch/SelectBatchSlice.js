@@ -56,8 +56,12 @@ const assignBatchSlice = createSlice({
             state.successMessage = null;
         },
         resetAssignStatus(state) {
+            state.loading = false;
+            state.error = null;
             state.assignSuccess = false;
+            state.successMessage = null; // 🔥 THIS WAS MISSING
         }
+
     },
 
     extraReducers: (builder) => {

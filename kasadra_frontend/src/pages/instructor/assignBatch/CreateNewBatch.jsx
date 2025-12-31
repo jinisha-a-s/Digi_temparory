@@ -3,10 +3,15 @@ import "../../../styles/instructor/assignBatch/CreateNewBatch.css";
 import { useDispatch, useSelector } from "react-redux";
 import Instructornavbar from "../../../components/Instructornavbar";
 import BackButton from "../../../components/BackButton";
-import { fetchCourses, createBatch, resetBatchState } from "../../../features/instructor/assignBatch/createNewBatchSlice";
 import Spinner from "../../../components/Spinner";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
+import {
+  fetchCourses,
+  createBatch,
+  resetBatchState,
+} from "../../../features/instructor/assignBatch/createNewBatchSlice";
 
 const AddBatchForm = () => {
   const dispatch = useDispatch();
@@ -24,94 +29,95 @@ const AddBatchForm = () => {
     endDate: "",
   });
 
-  // Field-specific errors
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
+  // --------------------------
   // Redux State
-  const { courses, loading, error, success } = useSelector((state) => state.newBatch);
+  // --------------------------
+  const { courses, loading: reduxLoading, error, success } = useSelector(
+    (state) => state.newBatch
+  );
 
-  // Fetch Courses
+  // --------------------------
+  // Fetch Courses on mount
+  // --------------------------
   useEffect(() => {
     dispatch(fetchCourses());
   }, [dispatch]);
 
+  // --------------------------
+  // Show toast on success and navigate back
+  // --------------------------
   useEffect(() => {
     if (success) {
+      toast.success("Batch added successfully!", {
+        duration: 3000,
+        position: "top-center",
+        style: { marginTop: "100px" },
+      });
+
       const timer = setTimeout(() => {
-        setFormData({
-          courseName: "",
-          batchName: "",
-          numberOfStudents: "",
-          timing: "",
-          startDate: "",
-          endDate: "",
-        });
-
+        navigate("/instructor/assign-batch");
         dispatch(resetBatchState());
-
-        navigate("/instructor/assign-batch");   // ✅ Navigate after success
       }, 1000);
 
       return () => clearTimeout(timer);
     }
-  }, [success, dispatch, navigate]);
+  }, [success, navigate, dispatch]);
 
 
-  // Success reset
+  // --------------------------
+  // Show toast on error
+  // --------------------------
   useEffect(() => {
-    if (success) {
-      const timer = setTimeout(() => {
-        setFormData({
-          courseName: "",
-          batchName: "",
-          numberOfStudents: "",
-          timing: "",
-          startDate: "",
-          endDate: "",
-        });
-        dispatch(resetBatchState());
-      }, 3000);
-      return () => clearTimeout(timer);
+    if (error) {
+      toast.error(error, {
+        duration: 3000,
+        position: "top-center",
+        style: { marginTop: "100px" },
+      });
     }
-  }, [success, dispatch]);
+  }, [error]);
 
-  if (loading) return <Spinner />;
-
+  // --------------------------
   // Input handler
+  // --------------------------
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    // Clear error for field when user types
+    // Clear error for field
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
+  // --------------------------
   // Validation
+  // --------------------------
   const validateForm = () => {
     const newErrors = {};
 
     if (!formData.courseName) newErrors.courseName = "Please select a course.";
-
     if (!formData.batchName.trim()) newErrors.batchName = "Batch name is required.";
-
     if (!formData.numberOfStudents || formData.numberOfStudents <= 0)
       newErrors.numberOfStudents = "Enter a valid number of students.";
-
     if (!formData.timing.trim()) newErrors.timing = "Timing is required.";
-
     if (!formData.startDate) newErrors.startDate = "Start date is required.";
-
     if (!formData.endDate) newErrors.endDate = "End date is required.";
-
-    if (formData.startDate && formData.endDate && formData.startDate > formData.endDate)
+    if (
+      formData.startDate &&
+      formData.endDate &&
+      formData.startDate > formData.endDate
+    )
       newErrors.endDate = "End date cannot be before start date.";
 
     setErrors(newErrors);
-
     return Object.keys(newErrors).length === 0;
   };
 
+  // --------------------------
   // Submit
+  // --------------------------
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -127,9 +133,13 @@ const AddBatchForm = () => {
       end_date: formData.endDate,
     };
 
-    dispatch(createBatch(postData));
+    setLoading(true);
+    dispatch(createBatch(postData)).finally(() => setLoading(false));
   };
 
+  // --------------------------
+  // Cancel handler
+  // --------------------------
   const handleCancel = () => {
     setFormData({
       courseName: "",
@@ -139,34 +149,40 @@ const AddBatchForm = () => {
       startDate: "",
       endDate: "",
     });
-
     setErrors({});
   };
+
+  if (reduxLoading) return <Spinner />;
 
   return (
     <div className="create-new-batch-page">
       <div className="create-new-batch">
-      
-
+        <Instructornavbar />
         <div className="create-new-batch-header">
-
           <p className="create-new-batch-title">Add New Batch</p>
         </div>
 
         <div className="create-new-batch-body">
           <div className="create-new-batch-container">
             <form className="create-new-batch-form" onSubmit={handleSubmit}>
-
               {/* Course */}
               <div className="create-new-batch-group">
                 <label>Course Name</label>
-                <select name="courseName" value={formData.courseName} onChange={handleChange}>
+                <select
+                  name="courseName"
+                  value={formData.courseName}
+                  onChange={handleChange}
+                >
                   <option value="">-- Select Course --</option>
                   {courses.map((course) => (
-                    <option key={course.id} value={course.id}>{course.title}</option>
+                    <option key={course.id} value={course.id}>
+                      {course.title}
+                    </option>
                   ))}
                 </select>
-                {errors.courseName && <p className="create-new-batch-error">{errors.courseName}</p>}
+                {errors.courseName && (
+                  <p className="create-new-batch-error">{errors.courseName}</p>
+                )}
               </div>
 
               {/* Batch Name */}
@@ -178,10 +194,12 @@ const AddBatchForm = () => {
                   value={formData.batchName}
                   onChange={handleChange}
                 />
-                {errors.batchName && <p className="create-new-batch-error">{errors.batchName}</p>}
+                {errors.batchName && (
+                  <p className="create-new-batch-error">{errors.batchName}</p>
+                )}
               </div>
 
-              {/* Students */}
+              {/* Number of Students */}
               <div className="create-new-batch-group">
                 <label>Number of Students</label>
                 <input
@@ -189,9 +207,8 @@ const AddBatchForm = () => {
                   name="numberOfStudents"
                   value={formData.numberOfStudents}
                   onChange={handleChange}
-                  min="1"   // ✅ prevents negative values
+                  min="1"
                 />
-
                 {errors.numberOfStudents && (
                   <p className="create-new-batch-error">{errors.numberOfStudents}</p>
                 )}
@@ -216,7 +233,9 @@ const AddBatchForm = () => {
                   value={formData.timing}
                   onChange={handleChange}
                 />
-                {errors.timing && <p className="create-new-batch-error">{errors.timing}</p>}
+                {errors.timing && (
+                  <p className="create-new-batch-error">{errors.timing}</p>
+                )}
               </div>
 
               {/* Start Date */}
@@ -228,7 +247,9 @@ const AddBatchForm = () => {
                   value={formData.startDate}
                   onChange={handleChange}
                 />
-                {errors.startDate && <p className="create-new-batch-error">{errors.startDate}</p>}
+                {errors.startDate && (
+                  <p className="create-new-batch-error">{errors.startDate}</p>
+                )}
               </div>
 
               {/* End Date */}
@@ -240,31 +261,30 @@ const AddBatchForm = () => {
                   value={formData.endDate}
                   onChange={handleChange}
                 />
-                {errors.endDate && <p className="create-new-batch-error">{errors.endDate}</p>}
+                {errors.endDate && (
+                  <p className="create-new-batch-error">{errors.endDate}</p>
+                )}
               </div>
-
-              {/* Success Message */}
-              {success && (
-                <p className="create-new-batch-success">✅ Batch added successfully!</p>
-              )}
-
-              {/* Server Error */}
-              {error && <p className="create-new-batch-error">{error}</p>}
 
               {/* Buttons */}
               <div className="create-new-batch-actions">
-                <button type="submit" className="create-new-batch-btn create-new-batch-save">
-                  Create
+                <button
+                  type="submit"
+                  className="create-new-batch-btn create-new-batch-save"
+                  disabled={loading}
+                >
+                  {loading ? "Creating..." : "Create"}
                 </button>
+
                 <button
                   type="button"
                   className="create-new-batch-btn create-new-batch-cancel"
                   onClick={handleCancel}
+                  disabled={loading}
                 >
                   Clear
                 </button>
               </div>
-
             </form>
           </div>
         </div>

@@ -1,227 +1,124 @@
-/* ===========================
-   MAIN LAYOUT
-=========================== */
-.schedule-class-main-container {
+/* ================================================= */
+/* 🌍 Page Layout – Udemy Style */
+/* ================================================= */
+.add-new-course-container {
+  width: 70%;
   min-height: 100vh;
-  background: #ffffff;
-  padding-top: calc(15vh + 20px);  /* Navbar height added here */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #f7f9fa;
   font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top: 100px;
+  padding-left: 250px;
 }
 
-/* ===========================
-   HEADER WITH BACK BUTTON
-=========================== */
-.schedule-close-btn {
-  width: 100%;
-  max-width: 900px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 0 20px;
-  margin-bottom: 20px;
-}
-
-.schedule-class-title {
-  flex: 1;
-  font-size: 2.2rem;
+/* ================================================= */
+/* 🧭 Title */
+/* ================================================= */
+.add-new-course-title {
+  max-width: 960px;
+  margin: 0 auto 24px;
+  font-size: 24px;
   font-weight: 700;
-  text-align: center;
-  color: #000;
-}
-
-/* ===========================
-   FORM CONTAINER
-=========================== */
-.schedule-class-container {
-  width: 100%;
-  max-width: 900px;
-  background: #fff;
-  padding: 40px;
-  margin-bottom: 50px;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
-  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.schedule-class-form {
-  width: 100%;
-}
-
-/* ===========================
-   FORM ROWS
-=========================== */
-.schedule-class-row {
+  color: #1c1d1f;
   display: flex;
   align-items: center;
-  margin-bottom: 22px;
-  gap: 18px;
+  gap: 12px;
 }
 
-.schedule-class-label {
-  width: 180px;
+/* ================================================= */
+/* 📄 Form Wrapper */
+/* ================================================= */
+.add-new-course-form {
+  max-width: 960px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 32px 40px;
+  border: 1px solid #e4e7eb;
+  border-radius: 4px;
+}
+
+/* ================================================= */
+/* 🧩 Form Group */
+/* ================================================= */
+.add-new-course-group {
+  margin-bottom: 24px;
+}
+
+.add-new-course-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
   font-weight: 600;
-  font-size: 1rem;
-  color: #222;
-  text-align: left;
+  color: #1c1d1f;
 }
 
-/* Input & select fields */
-.schedule-class-input {
-  flex: 1;
-  padding: 12px 14px;
-  min-height: 45px !important;    /* Prevent shrinking on small devices */
-  font-size: 1rem;
-  border-radius: 10px;
-  border: 1.8px solid #cfcdcd;
+.add-new-course-group input,
+.add-new-course-group select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #d1d7dc;
+  border-radius: 2px;
+}
+
+.add-new-course-group input:focus,
+.add-new-course-group select:focus {
   outline: none;
-  transition: 0.2s;
+  border-color: #2563eb;
 }
 
-.schedule-class-input:focus {
-  border-color: #001a45;
+/* ================================================= */
+/* ❗ Errors */
+/* ================================================= */
+.form-error {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #b32d0f;
 }
 
-/* ===========================
-   SUCCESS MESSAGE
-=========================== */
-.success-message {
-  text-align: center;
-  color: #08a626;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-/* ===========================
-   BUTTONS
-=========================== */
-.schedule-class-actions {
+/* ================================================= */
+/* 🎛️ Buttons */
+/* ================================================= */
+.add-new-course-buttons {
   display: flex;
-  justify-content: center;
-  gap: 18px;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 32px;
 }
 
-/* Save Button */
-.schedule-btn.save {
-  background: #001a45;
-  color: white;
+.add-new-course-btn {
+  height: 44px;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.add-new-course-save-btn {
+  background-color: #2563eb;
+  color: #fff;
   border: none;
-  outline: none;
-  padding: 12px 45px;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
 }
 
-/* Cancel Button */
-.schedule-btn.cancel {
-  background: white;
-  color: #001a45;
-  padding: 12px 35px;
-  border-radius: 10px;
-  border: 1.8px solid #001a45;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
+.add-new-course-cancel-btn {
+  background-color: #fff;
+  color: #1c1d1f;
+  border: 1px solid #1c1d1f;
 }
 
-.schedule-btn.save:hover {
-  opacity: 0.85;
-}
-.schedule-btn.cancel:hover {
-  background: #001a45;
-  color: white;
+.add-new-course-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-/* ===========================
-   MEDIA QUERIES
-=========================== */
-
-/* 🖥 2560px and up */
-@media (min-width: 1921px) {
-  .schedule-class-container {
-    max-width: 1200px;
-    padding: 60px;
+/* ================================================= */
+/* 📱 Responsive */
+/* ================================================= */
+@media (max-width: 992px) {
+  .add-new-course-form {
+    padding: 24px;
   }
-  .schedule-class-label {
-    font-size: 1.2rem;
-  }
-  .schedule-class-input {
-    font-size: 1.1rem;
-    min-height: 50px;
-  }
-}
 
-/* 🖥 1440px */
-@media (max-width: 1440px) {
-  .schedule-class-title {
-    font-size: 2rem;
-  }
-}
-
-/* 🖥 1024px */
-@media (max-width: 1024px) {
-  .schedule-class-container {
-    padding: 30px;
-  }
-}
-
-/* 📱 768px */
-@media (max-width: 768px) {
-  .schedule-class-row {
+  .add-new-course-buttons {
     flex-direction: column;
-    align-items: flex-start;
-  }
-  .schedule-class-label {
-    width: 100%;
-    text-align: left;
-    margin-bottom: 5px;
-  }
-
-  .schedule-class-input {
-    width: 100%;
-    min-height: 48px;       /* Prevent shrinking */
-    font-size: 1rem;
-  }
-
-  .schedule-class-actions {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  .schedule-btn.save,
-  .schedule-btn.cancel {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* 📱 480px */
-@media (max-width: 480px) {
-  .schedule-class-container {
-    padding: 20px;
-  }
-  .schedule-class-title {
-    font-size: 1.6rem;
-  }
-
-  .schedule-class-input {
-    min-height: 50px;
-  }
-}
-
-/* 📱 360px */
-@media (max-width: 360px) {
-  .schedule-class-title {
-    font-size: 1.3rem;
-  }
-  .schedule-class-input {
-    font-size: 0.95rem;
-    min-height: 52px;
   }
 }

@@ -7,13 +7,11 @@ import {
   resetState,
 } from "../../../../features/instructor/scheduleClass/meetingLink/editMeetingLinkSlice";
 import "../../../../styles/instructor/scheduleClass/meetingLink/EditMeetingLink.css";
-import BackButton from "../../../../components/BackButton";
-import Instructornavbar from "../../../../components/Instructornavbar";
 
 const EditMeetingLink = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const location = useLocation(); // ✅ get course & batch from navigation
+  const location = useLocation();
   const dispatch = useDispatch();
 
   const instructorId = Number(localStorage.getItem("instructorId"));
@@ -25,36 +23,29 @@ const EditMeetingLink = () => {
   const [meetingUrl, setMeetingUrl] = useState("");
   const [courseId, setCourseId] = useState(null);
   const [batchId, setBatchId] = useState(null);
-  const [message, setMessage] = useState(""); // Success or error message
-  const [messageType, setMessageType] = useState(""); // "success" or "error"
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
 
-  // Fetch meeting link on mount
   useEffect(() => {
     if (id && instructorId) {
       dispatch(fetchMeetingLink({ meetingId: Number(id), instructorId }));
     }
   }, [dispatch, id, instructorId]);
 
-  // Prefill form values
   useEffect(() => {
     if (meetingLink) {
-      setMeetingUrl(meetingLink?.meeting_url || "");
-      // Use location.state if present, otherwise fallback to meetingLink values
-      setCourseId(location.state?.course_id || meetingLink?.course_id);
-      setBatchId(location.state?.batch_id || meetingLink?.batch_id);
+      setMeetingUrl(meetingLink.meeting_url || "");
+      setCourseId(location.state?.course_id || meetingLink.course_id);
+      setBatchId(location.state?.batch_id || meetingLink.batch_id);
     }
   }, [meetingLink, location.state]);
 
-  console.log("de", batchId, courseId);
-
-  // Show success message and navigate back
   useEffect(() => {
     if (success) {
       setMessage("Meeting link updated successfully!");
       setMessageType("success");
 
       const timer = setTimeout(() => {
-        setMessage("");
         dispatch(resetState());
         navigate(-1);
       }, 2000);
@@ -63,14 +54,10 @@ const EditMeetingLink = () => {
     }
   }, [success, dispatch, navigate]);
 
-  // Show error messages
   useEffect(() => {
     if (status === "failed" && error) {
       setMessage(error);
       setMessageType("error");
-
-      const timer = setTimeout(() => setMessage(""), 3000);
-      return () => clearTimeout(timer);
     }
   }, [status, error]);
 
@@ -83,12 +70,6 @@ const EditMeetingLink = () => {
       return;
     }
 
-    if (!courseId || !batchId) {
-      setMessage("Invalid course or batch ID");
-      setMessageType("error");
-      return;
-    }
-
     const payload = {
       instructor_id: instructorId,
       course_id: Number(courseId),
@@ -96,27 +77,29 @@ const EditMeetingLink = () => {
       meeting_url: meetingUrl.trim(),
     };
 
-    console.log("Submitting payload:", payload);
     dispatch(editMeetingLink({ meetingId: Number(id), updatedData: payload }));
   };
 
   return (
-    <div className="edit-meeting-container">
-      <Instructornavbar />
-      <BackButton className="edit-meeting-backhead-button" />
-      <h3 className="edit-meeting-backhead-title">Edit Meeting Link</h3>
+    <>
+      <div className="edit-meeting-container">
 
-      {status === "loading" && <p>Loading...</p>}
+        <h2 className="edit-meeting-title">Edit Meeting Link</h2>
 
-      {message && (
-        <p className={messageType === "success" ? "success" : "error"}>
-          {message}
-        </p>
-      )}
-
-      {meetingLink && (
         <form className="edit-meeting-form" onSubmit={handleSubmit}>
-          <div className="form-group">
+          {message && (
+            <p
+              className={
+                messageType === "success"
+                  ? "edit-meeting-success"
+                  : "edit-meeting-error"
+              }
+            >
+              {message}
+            </p>
+          )}
+
+          <div className="edit-meeting-group">
             <label>Course Name</label>
             <input
               type="text"
@@ -125,27 +108,46 @@ const EditMeetingLink = () => {
             />
           </div>
 
-          <div className="form-group">
+          <div className="edit-meeting-group">
             <label>Batch Name</label>
-            <input type="text" value={meetingLink?.batch_name || ""} readOnly />
+            <input
+              type="text"
+              value={meetingLink?.batch_name || ""}
+              readOnly
+            />
           </div>
 
-          <div className="form-group">
+          <div className="edit-meeting-group">
             <label>Meeting Link</label>
             <input
               type="url"
               value={meetingUrl}
               onChange={(e) => setMeetingUrl(e.target.value)}
+              placeholder="https://zoom.us/..."
               required
             />
           </div>
 
-          <button type="submit" className="btn-submit">
-            Update
-          </button>
+          <div className="edit-meeting-buttons">
+            <button
+              type="submit"
+              className="edit-meeting-btn edit-meeting-save-btn"
+              disabled={status === "loading"}
+            >
+              Update
+            </button>
+
+            <button
+              type="button"
+              className="edit-meeting-btn edit-meeting-cancel-btn"
+              onClick={() => navigate(-1)}
+            >
+              Cancel
+            </button>
+          </div>
         </form>
-      )}
-    </div>
+      </div>
+    </>
   );
 };
 

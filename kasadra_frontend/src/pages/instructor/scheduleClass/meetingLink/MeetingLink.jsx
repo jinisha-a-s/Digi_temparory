@@ -46,73 +46,72 @@ const MeetingLink = () => {
   };
 
   return (
-    <div className="zoom-table-container">
-      <Instructornavbar />
-      <div className="meeting-link-back-btn">
-        <BackButton />
-        <div className="meeting-link-heading">
-          <h1>Meeting Link</h1>
-        </div>
+    <div className="meeting-link-page">
+      {/* Header with back button and Add button */}
+      <div className="meeting-link-header">
+        <h1 className="meeting-link-title">Meeting Links</h1>
+        <button className="meeting-link-add-btn" onClick={goToAddPage}>
+          + Add New ZoomLink
+        </button>
       </div>
 
-      {status === "loading" && <p className="loading">Loading...</p>}
-      {status === "failed" && (
-        <p className="error">
-          {error || "Something went wrong while fetching meeting links."}
-        </p>
-      )}
-      {status === "succeeded" && data.length === 0 && (
-        <p className="no-data">No Meeting Links</p>
-      )}
+      {/* Content */}
+      <div className="meeting-link-card">
+        {status === "loading" && <p className="loading">Loading...</p>}
+        {status === "failed" && (
+          <p className="error">
+            {error || "Something went wrong while fetching meeting links."}
+          </p>
+        )}
+        {status === "succeeded" && data.length === 0 && (
+          <p className="no-data">No Meeting Links</p>
+        )}
 
-      {status === "succeeded" && data.length > 0 && (
-        <table className="zoom-table">
-          <thead>
-            <tr>
-              <th>Meeting Link</th>
-              <th>Course name</th>
-              <th>Batch name</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((item) => (
-              <tr key={item.id}>
-                <td className="link-col">
-                  <a
-                    href={item.meeting_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {item.meeting_url}
-                  </a>
-                </td>
-                <td>{item.course_title}</td>
-                <td>{item.batch_name}</td>
-                <td>
-                  <button
-                    className="edit-btn"
-                    onClick={() => goToEditPage(item)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="delete-btn"
-                    onClick={() => handleDelete(item.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-
-      <div className="add-btn-area">
-        <button className="add-btn" onClick={goToAddPage}>
-          + Add
-        </button>
+        {status === "succeeded" && data.length > 0 && (
+          <div className="meeting-link-table-wrapper">
+            <table className="meeting-link-table">
+              <thead>
+                <tr>
+                  <th>Meeting Link</th>
+                  <th>Course Name</th>
+                  <th>Batch Name</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((item) => (
+                  <tr key={item.id}>
+                    <td className="link-col">
+                      <a
+                        href={item.meeting_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {item.meeting_url}
+                      </a>
+                    </td>
+                    <td>{item.course_title}</td>
+                    <td>{item.batch_name}</td>
+                    <td className="meeting-link-actions">
+                      <button
+                        className="meeting-link-btn edit-btn"
+                        onClick={() => goToEditPage(item)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="meeting-link-btn delete-btn"
+                        onClick={() => handleDelete(item.id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     </div>
   );

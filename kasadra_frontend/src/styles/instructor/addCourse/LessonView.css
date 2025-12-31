@@ -3,6 +3,7 @@
 ------------------------------------------------------------ */
 .lesson-view-container {
   width: 70%;
+  /* margin-top: 190px; */
   margin: calc(var(--navbar-height) + 20px) auto;
   font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -12,7 +13,8 @@
 ------------------------------------------------------------ */
 .lesson-view-card {
   background: white;
-  margin-top: calc(var(--navbar-height) + 20px);
+  /* margin-top: calc(var(--navbar-height) + 20px); */
+  margin-top: 150px;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
@@ -27,8 +29,15 @@
 
 /* Arrow inside lesson card */
 .lesson-view-card .lesson-view-arrow {
-  margin-left: auto; /* Push arrow to right */
+  margin-left: 20px;
+  /* Push arrow to right */
   cursor: pointer;
+}
+
+.lesson-view-heading{
+  font-size: 23px;
+  font-weight: 600;
+  color: #1f2937;
 }
 
 /* ------------------------------------------------------------
@@ -82,9 +91,10 @@
 /* Section heading */
 .lesson-view-content-heading {
   margin-top: 30px;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 600;
   margin-left: 10px;
+  margin-bottom: 20px;
 }
 
 /* Title bar for each content item */
@@ -113,24 +123,36 @@
   display: flex;
   gap: 12px;
   margin-top: 15px;
+  /* border-radius: 9px; */
 }
 
 .lesson-view-edit-btn {
-  padding: 8px 14px;
-  background: #0099ff;
+  border: 1px solid #2563eb;
+  border-radius: 10px;
+  padding: 5px;
+  color: #2563eb;
+  background: #eff6ff;
+  width: 80px;
+}
+
+.lesson-view-edit-btn:hover {
+  background: #2563eb;
   color: white;
-  border: none;
-  border-radius: 6px;
   cursor: pointer;
 }
 
 .lesson-view-delete-btn {
-  padding: 8px 14px;
-  background: #ff3b3b;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+  border-radius: 10px;
+  padding: 5px;
+  border: 1px solid #dc2626;
+  color: #dc2626;
+  width: 80px;
+  background: #fef2f2;
+}
+
+.lesson-view-delete-btn:hover {
+  background: #dc2626;
+  color: #ffffff;
 }
 
 

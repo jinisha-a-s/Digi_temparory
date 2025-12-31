@@ -175,8 +175,8 @@
 /* ========================================= */
 /* 🎯 Row Action Buttons */
 /* ========================================= */
-.assign-btn,
-.move-btn {
+.assign-batch-assign-btn,
+.assign-batch-move-btn {
   padding: 0.35rem 0.9rem;
   border-radius: 999px;
   font-size: 0.8rem;
@@ -187,25 +187,25 @@
 }
 
 /* Assign */
-.assign-btn {
+.assign-batch-assign-btn {
   background: #ecfdf5;
   color: #047857;
   border-color: #10b981;
 }
 
-.assign-btn:hover {
+.assign-batch-assign-btn:hover {
   background: #10b981;
   color: #ffffff;
 }
 
 /* Move */
-.move-btn {
+.assign-batch-move-btn {
   background: #fff7ed;
   color: #c2410c;
   border-color: #fb923c;
 }
 
-.move-btn:hover {
+.assign-batch-move-btn:hover {
   background: #fb923c;
   color: #ffffff;
 }
@@ -233,33 +233,43 @@
 }
 
 /* Assign */
-.assign-batch-btn {
-  background: #10b981;
-  color: #ffffff;
-}
+/* .assign-batch-btn {
+ background: #ecfdf5;
+  color: #047857;
+  border-color: #10b981;
+  border: 1px solid transparent;
+} */
 
-.assign-batch-btn:hover {
+/* .assign-batch-btn:hover {
   background: #059669;
-}
+} */
 
 /* Move */
-.assign-batch-btn-move {
+/* .assign-batch-btn-move {
   background: #fb923c;
   color: #ffffff;
-}
+} */
 
-.assign-batch-btn-move:hover {
+/* .assign-batch-btn-move:hover {
   background: #f97316;
-}
+} */
 
 /* Create */
 .assign-batch-btn-create {
-  background: #2563eb;
-  color: #ffffff;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid #2563eb;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .assign-batch-btn-create:hover {
   background: #1d4ed8;
+  color: #ffffff;
 }
 
 /* Disabled */
@@ -277,6 +287,24 @@
   font-size: 12px;
   color: #6b7280;
   cursor: help;
+}
+
+.assign-batch-select.highlight {
+  border: 2px solid #1E90FF;
+  box-shadow: 0 0 8px rgba(30, 144, 255, 0.6);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(30, 144, 255, 0.6);
+  }
+
+  50% {
+    box-shadow: 0 0 16px rgba(30, 144, 255, 1);
+  }
 }
 
 /* ========================================= */

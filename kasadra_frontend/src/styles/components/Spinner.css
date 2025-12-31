@@ -1,38 +1,45 @@
-/* Spinner container centers everything */
+/* Full page center */
 .spinner-container {
   display: flex;
-  flex-direction: column; /* spinner + text */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* full page center */
-  text-align: center;
+  height: 100vh;
 }
 
-/* Spinner circle animation */
+/* Spinner wrapper */
 .spinner {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 12px;
 }
 
+/* PERFECT CIRCLE */
 .spinner-circle {
-  width: 70px;   /* bigger width */
-  height: 70px;  /* bigger height */
-  border: 6px solid #ccc; /* thicker border */
-  border-top: 6px solid #007bff; /* thicker loading line */
+  width: 64px;
+  height: 64px;
+
+  /* 🔑 KEY FIXES */
+  aspect-ratio: 1 / 1;
+  box-sizing: border-box;
+  display: block;
+
+  border: 6px solid #e0e0e0;
+  border-top-color: #007bff;
   border-radius: 50%;
+
   animation: spin 1s linear infinite;
 }
 
-
+/* Text below spinner */
 .spinner-text {
-  font-size: 1.4rem;  /* bigger text */
-  font-weight: 600;
-  color: #333;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #444;
 }
 
-
+/* Spin animation */
 @keyframes spin {
   to {
     transform: rotate(360deg);

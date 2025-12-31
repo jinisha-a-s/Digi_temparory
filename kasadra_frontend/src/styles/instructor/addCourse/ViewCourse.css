@@ -5,16 +5,11 @@
   width: 100%;
   background: #f5f7fb;
   min-height: 100vh;
+  padding-top: 50px;
   font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.view-course-navbar {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-}
+
 
 /* ============================
    Page Container

@@ -5,7 +5,7 @@ import {
   getBatchesAPI,
   getScheduleClassAPI,
   updateScheduleClassAPI,
-} from "../../../api/instructor/scheduleClass/scheduleEditorAPI";
+} from "../../../api/instructor/scheduleClass/UpdateCalenderAPI";
 
 // 🧩 Thunks
 export const fetchCourses = createAsyncThunk(

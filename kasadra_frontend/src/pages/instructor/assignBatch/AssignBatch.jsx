@@ -11,9 +11,8 @@ import {
 } from "../../../features/instructor/assignBatch/assignBatchSlice.js";
 
 import "../../../styles/instructor/assignBatch/AssignBatch.css";
-import Instructornavbar from "../../../components/Instructornavbar";
-import BackButton from "../../../components/BackButton";
-import InstructorhomePage from "../InstructorhomePage.jsx";
+import SelectBatch from "./SelectBatch.jsx";
+
 
 const AssignBatchTable = () => {
     const dispatch = useDispatch();
@@ -27,76 +26,60 @@ const AssignBatchTable = () => {
     const [searchText, setSearchText] = useState("");
     const [searchOpen, setSearchOpen] = useState(false);
     const [selectedStudents, setSelectedStudents] = useState([]);
-
-    // NEW
     const [hasAssignedSelected, setHasAssignedSelected] = useState(false);
 
-    // -----------------------------------------------
-    // Load instructor courses ONLY once
-    // -----------------------------------------------
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupStudents, setPopupStudents] = useState([]);
+    const [popupMode, setPopupMode] = useState("assign");
+    const [currentBatchId, setCurrentBatchId] = useState(null);
+
+    // Load instructor courses once
     useEffect(() => {
         if (courses.length === 0) {
             dispatch(fetchInstructorCourses());
         }
     }, [courses.length, dispatch]);
 
-    // -----------------------------------------------
-    // Correct & FINAL course-change effect
-    // -----------------------------------------------
+    // Course change effect
     useEffect(() => {
         if (!selectedCourse) {
             dispatch(clearBatches());
             return;
         }
-
         dispatch(clearBatches());
         dispatch(fetchBatches(selectedCourse));
         dispatch(fetchStudentsByCourse(selectedCourse));
     }, [selectedCourse, dispatch]);
 
-    // -----------------------------------------------
-    // Restore previous state when user returns
-    // -----------------------------------------------
+    // Restore previous state
     useEffect(() => {
         if (!selectedCourse && selectedCourseId) {
             setSelectedCourseState(selectedCourseId);
-
-            dispatch(clearBatches()); // ⭐ FIX ADDED HERE
-
+            dispatch(clearBatches());
             dispatch(fetchStudentsByCourse(selectedCourseId));
             dispatch(fetchBatches(selectedCourseId));
         }
     }, [dispatch, selectedCourse, selectedCourseId]);
 
-
-    // -----------------------------------------------
-    // CHECK SELECTED STUDENTS — Assigned or not?
-    // -----------------------------------------------
+    // Check selected students
     useEffect(() => {
         const foundAssigned = selectedStudents.some((sid) => {
             const st = students.find((s) => s.student_id === sid);
             return st && st.batch_name && st.batch_name !== "null";
         });
-
         setHasAssignedSelected(foundAssigned);
     }, [selectedStudents, students]);
 
-    // -----------------------------------------------
     // Reset selections when course changes
-    // -----------------------------------------------
     useEffect(() => {
         setSelectedStudents([]);
         setHasAssignedSelected(false);
     }, [selectedCourse]);
 
-    // -----------------------------------------------
-    // Handlers
-    // -----------------------------------------------
     const handleCourseChange = (e) => {
         const cid = e.target.value;
-
         setSelectedCourseState(cid);
-        dispatch(setSelectedCourse(cid)); // sync with redux
+        dispatch(setSelectedCourse(cid));
     };
 
     const toggleStudentSelection = (studentId) => {
@@ -107,32 +90,17 @@ const AssignBatchTable = () => {
         );
     };
 
-    // ----------------------------
-    // COMMAND: compute filtered students once for clarity
-    // ----------------------------
-    const filteredStudents = students
-        .filter((student) => {
-            if (searchText.trim() !== "") {
-                if (!student.name.toLowerCase().includes(searchText.toLowerCase())) {
-                    return false;
-                }
-            }
+    const filteredStudents = students.filter((student) => {
+        if (searchText.trim() !== "" && !student.name.toLowerCase().includes(searchText.toLowerCase())) {
+            return false;
+        }
+        if (selectedBatch === "All") return true;
+        if (selectedBatch === "Unassigned") {
+            return !student.batch_name || student.batch_name === "null";
+        }
+        return student.batch_name === selectedBatch;
+    });
 
-            if (selectedBatch === "All") return true;
-
-            if (selectedBatch === "Unassigned") {
-                return (
-                    !student.batch_name ||
-                    student.batch_name === "null"
-                );
-            }
-
-            return student.batch_name === selectedBatch;
-        });
-
-    // ----------------------------
-    // COMMAND: helper to decide which "no-data" message to show
-    // ----------------------------
     const getNoDataMessage = () => {
         if (!selectedCourse) return "📘 Please select the course first";
         if (students.length === 0) return "No students found for this course.";
@@ -147,16 +115,15 @@ const AssignBatchTable = () => {
     return (
         <div className="assign-batch-instructor-home">
             <div className="assign-batch-page">
-                {/* Header Section */}
+                {/* Header */}
                 <div className="assign-batch-all-header">
                     <div className="assign-batch-header-left">
-                        {/* <BackButton to="/instructor/home" /> */}
                         <div className="assign-batch-header">
                             <p className="assign-batch-title">Assign Students to Batches</p>
                         </div>
                     </div>
 
-                    {/* Filters Row */}
+                    {/* Controls */}
                     <div className="assign-batch-controls">
                         {/* Search Box */}
                         <div className="assign-batch-search-box">
@@ -166,10 +133,8 @@ const AssignBatchTable = () => {
                                 value={searchText}
                                 onChange={(e) => setSearchText(e.target.value)}
                                 placeholder="Search students..."
-                                // COMMAND: basic aria label for accessibility
                                 aria-label="Search students"
                             />
-
                             <button
                                 type="button"
                                 className="assign-batch-search-btn"
@@ -184,19 +149,16 @@ const AssignBatchTable = () => {
                         <div className="assign-batch-control-item">
                             <label>
                                 Select Course
-                                {/* COMMAND: small info tooltip beside label */}
                                 <span className="info-icon" title="Select a course to load students and batches."> ⓘ</span>
                             </label>
                             <select
                                 value={selectedCourse}
                                 onChange={handleCourseChange}
-                                className="assign-batch-select"
+                                className={`assign-batch-select ${!selectedCourse ? "highlight" : ""}`}
                             >
                                 <option value="">Select the Course</option>
                                 {courses.map((course) => (
-                                    <option key={course.id} value={course.id}>
-                                        {course.title}
-                                    </option>
+                                    <option key={course.id} value={course.id}>{course.title}</option>
                                 ))}
                             </select>
                         </div>
@@ -215,154 +177,125 @@ const AssignBatchTable = () => {
                             >
                                 <option value="All">All</option>
                                 <option value="Unassigned">Unassigned</option>
-
                                 {batches.map((b) => (
-                                    <option key={b.batch_id} value={b.batch_name}>
-                                        {b.batch_name}
-                                    </option>
+                                    <option key={b.batch_id} value={b.batch_name}>{b.batch_name}</option>
                                 ))}
                             </select>
                         </div>
                     </div>
                 </div>
 
-                {/* Table */}
-                <div className="assign-batch-body">
-                    <div className="assign-batch-card">
-                        <div className="assign-batch-table-wrapper">
-                            <table className="assign-batch-table">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Name</th>
-                                        <th>Current Batch</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    {/* COMMAND: show friendly message inside table when there's no course selected OR no students after filtering */}
-                                    {noDataMessage ? (
-                                        <tr className="empty-table-row">
-                                            {/* colspan=4 to center message across table */}
-                                            <td colSpan={4} className="empty-table-cell">
-                                                {noDataMessage}
-                                            </td>
+                {/* Only show table if course is selected */}
+                {selectedCourse && (
+                    <div className="assign-batch-body">
+                        <div className="assign-batch-card">
+                            <div className="assign-batch-table-wrapper">
+                                <table className="assign-batch-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Name</th>
+                                            <th>Current Batch</th>
+                                            <th>Action</th>
                                         </tr>
-                                    ) : (
-                                        filteredStudents.map((student) => {
-                                            const isSelected = selectedStudents.includes(student.student_id);
-                                            const isAssigned = student.batch_name && student.batch_name !== "null";
+                                    </thead>
+                                    <tbody>
+                                        {filteredStudents.length === 0 ? (
+                                            <tr className="empty-table-row">
+                                                <td colSpan={4} className="empty-table-cell">
+                                                    {students.length === 0 ? "No students found for this course." : "No students match the selected filters."}
+                                                </td>
+                                            </tr>
+                                        ) : (
+                                            filteredStudents.map((student) => {
+                                                const isSelected = selectedStudents.includes(student.student_id);
+                                                const isAssigned = student.batch_name && student.batch_name !== "null";
 
-                                            return (
-                                                // COMMAND: add row highlight when selected
-                                                <tr
-                                                    key={student.student_id}
-                                                    className={isSelected ? "selected-row" : ""}
-                                                >
-                                                    <td>
-                                                        <input
-                                                            type="checkbox"
-                                                            checked={isSelected}
-                                                            onChange={() => toggleStudentSelection(student.student_id)}
-                                                            aria-label={`select ${student.name}`}
-                                                        />
-                                                    </td>
+                                                return (
+                                                    <tr key={student.student_id} className={isSelected ? "selected-row" : ""}>
+                                                        <td>
+                                                            <input
+                                                                type="checkbox"
+                                                                checked={isSelected}
+                                                                onChange={() => toggleStudentSelection(student.student_id)}
+                                                                aria-label={`select ${student.name}`}
+                                                            />
+                                                        </td>
+                                                        <td>{student.name}</td>
+                                                        <td>{student.batch_name || "Unassigned"}</td>
+                                                        <td>
+                                                            <button
+                                                                className={isAssigned ? "assign-batch-move-btn" : "assign-batch-assign-btn"}
+                                                                onClick={() => {
+                                                                    setPopupStudents([student.student_id]);
+                                                                    setPopupMode(isAssigned ? "move" : "assign");
+                                                                    setCurrentBatchId(student.batch_id);
+                                                                    setShowPopup(true);
+                                                                }}
+                                                            >
+                                                                {isAssigned ? "Move" : "Assign"}
+                                                            </button>
 
-                                                    <td>{student.name}</td>
-                                                    <td>{student.batch_name || "Unassigned"}</td>
+                                                        </td>
+                                                    </tr>
+                                                );
+                                            })
+                                        )}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
 
-                                                    {/* COMMAND: Fixed invalid nested <td> structure by using a single td for actions */}
-                                                    <td>
-                                                        <button
-                                                            className={isAssigned ? "move-btn" : "assign-btn"}
-                                                            onClick={() => {
-                                                                navigate("/instructor/assign-batch/select", {
-                                                                    state: {
-                                                                        selectedStudents: [student.student_id],
-                                                                        courseId: selectedCourse,
-                                                                        mode: isAssigned ? "move" : "assign",
-                                                                    },
-                                                                });
-                                                            }}
-                                                            title={isAssigned ? "Move this student to another batch" : "Assign this student to a batch"}
-                                                        >
-                                                            {isAssigned ? "Move" : "Assign"}
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            );
-                                        })
-                                    )}
-                                </tbody>
-                            </table>
+                        {/* Footer Buttons */}
+                        <div className="assign-batch-buttons">
+                            <button
+                            className="assign-batch-assign-btn"
+                                onClick={() => {
+                                    setPopupStudents(selectedStudents);
+                                    setPopupMode("assign");
+                                    setShowPopup(true);
+                                }}
+                            >
+                                Assign to
+                            </button>
+
+                            <button
+                            className="assign-batch-move-btn"
+                                onClick={() => {
+                                    setPopupStudents(selectedStudents);
+                                    setPopupMode("move");
+                                    setShowPopup(true);
+                                }}
+                            >
+                                Move To
+                            </button>
+
+
+                            <button
+                                className="assign-batch-btn-create"
+                                onClick={() => navigate("/instructor/assign-batch/create-new-batch")}
+                                title="Create a new batch for this course"
+                            >
+                                ➕ Create New Batch
+                            </button>
                         </div>
                     </div>
-
-                    {/* Footer Buttons */}
-                    <div className="assign-batch-buttons">
-                        <button
-                            className="assign-batch-btn"
-                            disabled={hasAssignedSelected || selectedStudents.length === 0}
-                            style={{
-                                opacity: hasAssignedSelected ? 0.4 : 1,
-                                cursor: hasAssignedSelected ? "not-allowed" : "pointer",
-                            }}
-                            onClick={() => {
-                                if (hasAssignedSelected) {
-                                    alert("⚠️ Please select only unassigned students to assign.");
-                                    return;
-                                }
-
-                                navigate("/instructor/assign-batch/select", {
-                                    state: {
-                                        selectedStudents,
-                                        courseId: selectedCourse,
-                                    },
-                                });
-                            }}
-                            // COMMAND: tooltip explaining why disabled when applicable
-                            title={hasAssignedSelected ? "Select only unassigned students to use Assign" : (selectedStudents.length === 0 ? "Select students to assign" : "Assign selected students")}
-                        >
-                            Assign to
-                        </button>
-
-                        <button
-                            className="assign-batch-btn-move"
-                            disabled={!hasAssignedSelected || selectedStudents.length === 0}
-                            style={{
-                                opacity: !hasAssignedSelected ? 0.4 : 1,
-                                cursor: !hasAssignedSelected ? "not-allowed" : "pointer",
-                            }}
-                            onClick={() => {
-                                if (!hasAssignedSelected) {
-                                    alert("Please select only assigned students to move.");
-                                    return;
-                                }
-
-                                navigate("/instructor/assign-batch/select", {
-                                    state: {
-                                        selectedStudents,
-                                        courseId: selectedCourse,
-                                        mode: "move",
-                                    },
-                                });
-                            }}
-                            title={!hasAssignedSelected ? "Select only assigned students to use Move" : (selectedStudents.length === 0 ? "Select students to move" : "Move selected students")}
-                        >
-                            Move To
-                        </button>
-
-                        <button
-                            className="assign-batch-btn-create"
-                            onClick={() => navigate("/instructor/assign-batch/create-new-batch")}
-                            title="Create a new batch for this course"
-                        >
-                            ➕ Create New Batch
-                        </button>
-                    </div>
-                </div>
+                )}
             </div>
+            {showPopup && (
+                <SelectBatch
+                    selectedStudents={popupStudents}
+                    courseId={selectedCourse}
+                    mode={popupMode}
+                    currentBatchId={currentBatchId}
+                    onClose={() => setShowPopup(false)}
+                    onSuccess={() => {
+                        setShowPopup(false);
+                        dispatch(fetchStudentsByCourse(selectedCourse));
+                    }}
+                />
+            )}
+
         </div>
     );
 };

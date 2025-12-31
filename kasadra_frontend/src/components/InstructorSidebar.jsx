@@ -37,25 +37,25 @@ const instructorMenu = [
         label: "Create Batch",
         route: "assign-batch/create-new-batch"
       },
- 
+
     ]
   },
   {
     id: "schedule-class",
     label: "Schedule Class",
-    children: [
-      {
-        id: "update-calendar",
-        label: "Update Calendar",
-        route: "schedule-class"
-      },
-      {
-        id: "update-zoom",
-        label: "Update Zoom Link",
-        route: "meeting-link"
-      }
-    ]
+    route: "course/schedule",
   },
+  {
+    id: "update-calendar",
+    label: "Update Calendar",
+    route: "schedule-class/:courseId",
+  },
+  {
+    id: "update-zoom",
+    label: "Update Zoom Link",
+    route: "meeting-link",
+  },
+
   {
     id: "live-class",
     label: "Live Class Update",
@@ -172,8 +172,8 @@ export default function InstructorSidebar({ collapsed, setCollapsed }) {
                       <div
                         key={child.id}
                         className={`student-sidebar-content-item ${isChildActive
-                            ? "student-sidebar-content-item-active"
-                            : ""
+                          ? "student-sidebar-content-item-active"
+                          : ""
                           }`}
                         onClick={() => navigate(child.route)}
                       >
